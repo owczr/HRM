@@ -12,7 +12,7 @@ import torch.distributed as dist
 import tqdm
 import wandb
 import yaml
-from adam_atan2 import AdamATan2
+from adam_atan2_pytorch import AdamAtan2
 from omegaconf import DictConfig
 from torch import nn
 from torch.utils.data import DataLoader
@@ -148,9 +148,9 @@ def create_model(
             weight_decay=config.puzzle_emb_weight_decay,
             world_size=world_size,
         ),
-        AdamATan2(
+        AdamAtan2(
             model.parameters(),
-            lr=0,  # Needs to be set by scheduler
+            lr=0.1,  # Needs to be set by scheduler
             weight_decay=config.weight_decay,
             betas=(config.beta1, config.beta2),
         ),
