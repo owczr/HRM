@@ -1,13 +1,21 @@
-from typing import List
-import yaml
 import os
-
-import torch
-import torch.distributed as dist
+from typing import List
 
 import pydantic
+import torch
+import torch.distributed as dist
+import yaml
 from omegaconf import OmegaConf
-from pretrain import PretrainConfig, init_train_state, evaluate, create_dataloader
+
+from pretrain import PretrainConfig, create_dataloader, evaluate, init_train_state
+
+DEVICE = (
+    "mps"
+    if torch.backends.mps.is_available()
+    else "cuda"
+    if torch.cuda.is_available()
+    else "cpu"
+)
 
 
 class EvalConfig(pydantic.BaseModel):
@@ -31,12 +39,18 @@ def launch():
     # Initialize distributed training if in distributed environment (e.g. torchrun)
     if "LOCAL_RANK" in os.environ:
         # Initialize distributed, default device and dtype
-        dist.init_process_group(backend="nccl")
+        # Use NCCL for CUDA, GLOO for MPS/CPU
+        backend = "nccl" if DEVICE == "cuda" else "gloo"
+        dist.init_process_group(backend=backend)
 
         RANK = dist.get_rank()
         WORLD_SIZE = dist.get_world_size()
 
-        torch.cuda.set_device(int(os.environ["LOCAL_RANK"]))
+        if DEVICE == "cuda":
+            torch.cuda.set_device(int(os.environ["LOCAL_RANK"]))
+        elif DEVICE == "mps":
+            # MPS doesn't need explicit device setting in distributed mode
+            pass
 
     with open(
         os.path.join(os.path.dirname(eval_cfg.checkpoint), "all_config.yaml"), "r"
@@ -71,13 +85,13 @@ def launch():
     # Try unwrap torch.compile
     try:
         train_state.model.load_state_dict(
-            torch.load(eval_cfg.checkpoint, map_location="cuda"), assign=True
+            torch.load(eval_cfg.checkpoint, map_location=DEVICE), assign=True
         )
     except:
         train_state.model.load_state_dict(
             {
                 k.removeprefix("_orig_mod."): v
-                for k, v in torch.load(eval_cfg.checkpoint, map_location="cuda").items()
+                for k, v in torch.load(eval_cfg.checkpoint, map_location=DEVICE).items()
             },
             assign=True,
         )

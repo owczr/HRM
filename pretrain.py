@@ -1,26 +1,33 @@
-from typing import Optional, Any, Sequence, List
-from dataclasses import dataclass
-import os
 import math
-import yaml
+import os
 import shutil
+from dataclasses import dataclass
+from typing import Any, List, Optional, Sequence
 
-import torch
-import torch.distributed as dist
-from torch import nn
-from torch.utils.data import DataLoader
-
-import tqdm
-import wandb
 import coolname
 import hydra
 import pydantic
-from omegaconf import DictConfig
+import torch
+import torch.distributed as dist
+import tqdm
+import wandb
+import yaml
 from adam_atan2 import AdamATan2
+from omegaconf import DictConfig
+from torch import nn
+from torch.utils.data import DataLoader
 
-from puzzle_dataset import PuzzleDataset, PuzzleDatasetConfig, PuzzleDatasetMetadata
-from utils.functions import load_model_class, get_model_source_path
 from models.sparse_embedding import CastedSparseEmbeddingSignSGD_Distributed
+from puzzle_dataset import PuzzleDataset, PuzzleDatasetConfig, PuzzleDatasetMetadata
+from utils.functions import get_model_source_path, load_model_class
+
+DEVICE = (
+    "mps"
+    if torch.backends.mps.is_available()
+    else "cuda"
+    if torch.cuda.is_available()
+    else "cpu"
+)
 
 
 class LossConfig(pydantic.BaseModel):
@@ -121,7 +128,7 @@ def create_model(
     model_cls = load_model_class(config.arch.name)
     loss_head_cls = load_model_class(config.arch.loss.name)
 
-    with torch.device("cuda"):
+    with torch.device(DEVICE):
         model: nn.Module = model_cls(model_cfg)
         model = loss_head_cls(model, **config.arch.loss.__pydantic_extra__)  # type: ignore
         if "DISABLE_COMPILE" not in os.environ:
@@ -240,11 +247,11 @@ def train_batch(
         return
 
     # To device
-    batch = {k: v.cuda() for k, v in batch.items()}
+    batch = {k: v.to(DEVICE) for k, v in batch.items()}
 
     # Init carry if it is None
     if train_state.carry is None:
-        with torch.device("cuda"):
+        with torch.device(DEVICE):
             train_state.carry = train_state.model.initial_carry(batch)  # type: ignore
 
     # Forward
@@ -318,8 +325,8 @@ def evaluate(
         carry = None
         for set_name, batch, global_batch_size in eval_loader:
             # To device
-            batch = {k: v.cuda() for k, v in batch.items()}
-            with torch.device("cuda"):
+            batch = {k: v.to(DEVICE) for k, v in batch.items()}
+            with torch.device(DEVICE):
                 carry = train_state.model.initial_carry(batch)  # type: ignore
 
             # Forward
@@ -351,7 +358,7 @@ def evaluate(
                 metric_values = torch.zeros(
                     (len(set_ids), len(metrics.values())),
                     dtype=torch.float32,
-                    device="cuda",
+                    device=DEVICE,
                 )
 
             metric_values[set_id] += torch.stack([metrics[k] for k in metric_keys])
@@ -457,12 +464,18 @@ def launch(hydra_config: DictConfig):
     # Initialize distributed training if in distributed environment (e.g. torchrun)
     if "LOCAL_RANK" in os.environ:
         # Initialize distributed, default device and dtype
-        dist.init_process_group(backend="nccl")
+        # Use NCCL for CUDA, GLOO for MPS/CPU
+        backend = "nccl" if DEVICE == "cuda" else "gloo"
+        dist.init_process_group(backend=backend)
 
         RANK = dist.get_rank()
         WORLD_SIZE = dist.get_world_size()
 
-        torch.cuda.set_device(int(os.environ["LOCAL_RANK"]))
+        if DEVICE == "cuda":
+            torch.cuda.set_device(int(os.environ["LOCAL_RANK"]))
+        elif DEVICE == "mps":
+            # MPS doesn't need explicit device setting in distributed mode
+            pass
 
     # Load sync'ed config
     config = load_synced_config(hydra_config, rank=RANK, world_size=WORLD_SIZE)
