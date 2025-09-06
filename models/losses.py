@@ -1,9 +1,8 @@
-from typing import Any, Tuple, Dict, Sequence, Optional
+from typing import Any, Dict, Optional, Sequence, Tuple
 
 import torch
 import torch.nn.functional as F
 from torch import nn
-
 
 IGNORE_LABEL_ID = -100
 
@@ -18,7 +17,7 @@ def log_stablemax(x, dim=-1):
 
 
 def stablemax_cross_entropy(logits, labels, ignore_index: int = -100):
-    logprobs = log_stablemax(logits.to(torch.float64), dim=-1)
+    logprobs = log_stablemax(logits.to(torch.float32), dim=-1)
 
     valid_mask = labels != ignore_index
     transformed_labels = torch.where(valid_mask, labels, 0)
