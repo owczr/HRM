@@ -10,13 +10,13 @@ import pydantic
 import torch
 import torch.distributed as dist
 import tqdm
-import wandb
 import yaml
 from adam_atan2_pytorch import AdamAtan2
 from omegaconf import DictConfig
 from torch import nn
 from torch.utils.data import DataLoader
 
+import wandb
 from models.sparse_embedding import CastedSparseEmbeddingSignSGD_Distributed
 from puzzle_dataset import PuzzleDataset, PuzzleDatasetConfig, PuzzleDatasetMetadata
 from utils.functions import get_model_source_path, load_model_class
@@ -323,7 +323,7 @@ def evaluate(
         metric_global_batch_size = [0 for _ in range(len(set_ids))]
 
         carry = None
-        for set_name, batch, global_batch_size in eval_loader:
+        for set_name, batch, global_batch_size in tqdm.tqdm(eval_loader):
             # To device
             batch = {k: v.to(DEVICE) for k, v in batch.items()}
             with torch.device(DEVICE):
