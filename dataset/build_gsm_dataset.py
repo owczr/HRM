@@ -76,7 +76,14 @@ def get_training_data(df):
 
 def train_tokenizer(tokenizer, trainer, data):
     tokenizer.train_from_iterator(data, trainer)
-    tokenizer.enable_padding(pad_token="[PAD]", pad_id=tokenizer.token_to_id("[PAD]"))
+
+    temp_encoded = tokenizer.encode_batch(data)
+    max_length = max(len(enc.ids) for enc in temp_encoded)
+    max_length = min(max_length, 512)  # Cap at 512 tokens to avoid memory issues
+
+    tokenizer.enable_padding(
+        length=max_length, pad_token="[PAD]", pad_id=tokenizer.token_to_id("[PAD]")
+    )
     return tokenizer
 
 
@@ -101,13 +108,21 @@ def encoded_to_numpy(encoded):
     return np.array([np.array(enc.ids) for enc in encoded])
 
 
-def save(X, y, problems_encoded, tokenizer, vocab_size, name, config):
+def save(X, y, problems_processed, tokenizer, vocab_size, name, config):
+    num_samples = len(problems_processed)
+
+    # puzzle_indices: [0, 1, 2, ..., num_samples]
+    puzzle_indices = np.arange(num_samples + 1, dtype=np.int32)
+
+    # group_indices: [0, 1, 2, ..., num_samples]
+    group_indices = np.arange(num_samples + 1, dtype=np.int32)
+
     results = {
         "inputs": X,
         "labels": y,
-        "group_indices": np.array(range(len(problems_encoded))),
-        "puzzle_indices": np.array(range(len(problems_encoded))),
-        "puzzle_identifiers": np.zeros(len(problems_encoded)),
+        "group_indices": group_indices,
+        "puzzle_indices": puzzle_indices,
+        "puzzle_identifiers": np.zeros(num_samples, dtype=np.int32),
     }
 
     metadata = {
@@ -117,7 +132,7 @@ def save(X, y, problems_encoded, tokenizer, vocab_size, name, config):
         "vocab_size": vocab_size,
         "seq_len": results["inputs"].shape[1],
         "num_puzzle_identifiers": 1,
-        "total_groups": len(problems_encoded),
+        "total_groups": num_samples,
         "mean_puzzle_examples": 1.0,
         "sets": ["all"],
     }
@@ -158,10 +173,29 @@ def main(config):
     X = encoded_to_numpy(problems_encoded)
     y = encoded_to_numpy(answers_encoded)
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, random_state=42, train_size=0.8
+    )
 
-    save(X_train, y_train, problems_encoded, tokenizer, vocab_size, "train", config)
-    save(X_test, y_test, problems_encoded, tokenizer, vocab_size, "test", config)
+    # Split the processed data to match the train/test splits
+    all_indices = np.arange(len(problems_processed))
+    train_indices, test_indices = train_test_split(
+        all_indices, random_state=42, train_size=0.8
+    )
+
+    train_problems_processed = [problems_processed[i] for i in train_indices]
+    test_problems_processed = [problems_processed[i] for i in test_indices]
+
+    save(
+        X_train,
+        y_train,
+        train_problems_processed,
+        tokenizer,
+        vocab_size,
+        "train",
+        config,
+    )
+    save(X_test, y_test, test_problems_processed, tokenizer, vocab_size, "test", config)
 
 
 @cli.command(singleton=True)
