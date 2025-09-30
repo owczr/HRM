@@ -1,5 +1,8 @@
 import json
 import os
+import tarfile
+import urllib.request
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -16,8 +19,41 @@ cli = ArgParser()
 
 
 class DataProcessConfig(BaseModel):
-    input_file: str = "data/GSM-Q/gsm_CSP_full.csv"
+    dataset_url: str = (
+        "https://storage.googleapis.com/questbench/questbench_data.tar.gz"
+    )
+    input_dir: str = "data"
+    input_file: str = "data/questbench_data/GSM-Q/gsm_CSP_full.csv"
     output_dir: str = "data/questbench-gsm"
+
+
+def download_dataset(download_dir, dataset_url):
+    # Ensure the directory exists
+    Path(download_dir).mkdir(parents=True, exist_ok=True)
+
+    tar_path = os.path.join(download_dir, "questbench_data.tar.gz")
+
+    print(f"Downloading dataset from {dataset_url}...")
+    try:
+        urllib.request.urlretrieve(dataset_url, tar_path)
+        print(f"Download complete. File saved to {tar_path}")
+    except Exception as e:
+        print(f"Error downloading dataset: {e}")
+        raise
+
+    print("Extracting dataset...")
+    try:
+        with tarfile.open(tar_path, "r:gz") as tar:
+            tar.extractall(path=download_dir)
+        print(f"Extraction complete. Files extracted to {download_dir}")
+    except Exception as e:
+        print(f"Error extracting dataset: {e}")
+        raise
+    finally:
+        # Always attempt to remove the archive file
+        if os.path.exists(tar_path):
+            os.remove(tar_path)
+            print(f"Removed downloaded archive: {tar_path}")
 
 
 def read_data(config) -> pd.DataFrame:
@@ -154,48 +190,87 @@ def save(X, y, problems_processed, tokenizer, vocab_size, name, config):
 
 
 def main(config):
-    df = read_data(config)
+    input_file_path = config.input_file
 
-    vocab, vocab_size = get_vocabulary(df)
+    # Check if the input file exists before downloading
+    if not os.path.exists(input_file_path):
+        print(
+            f"Input file {input_file_path} not found. Proceeding to download dataset..."
+        )
+        try:
+            download_dataset(config.input_dir, config.dataset_url)
+        except Exception as e:
+            print(f"Error downloading dataset: {e}")
+            return
+    else:
+        print(f"Input file {input_file_path} already exists. Skipping download.")
 
-    tokenizer, trainer = get_tokenizer()
+    # Verify that the input file exists after attempting download
+    if not os.path.exists(input_file_path):
+        print(
+            f"Error: Input file {input_file_path} does not exist after download attempt."
+        )
+        return
 
-    data = get_training_data(df)
+    try:
+        df = read_data(config)
+    except FileNotFoundError:
+        print(f"Error: Could not find input file {input_file_path}")
+        return
+    except Exception as e:
+        print(f"Error reading data: {e}")
+        return
 
-    tokenizer = train_tokenizer(tokenizer, trainer, data)
+    try:
+        vocab, vocab_size = get_vocabulary(df)
+        tokenizer, trainer = get_tokenizer()
+        data = get_training_data(df)
+        tokenizer = train_tokenizer(tokenizer, trainer, data)
+        problems_processed = add_special_tokens(df)
+        problems_encoded, answers_encoded = encode(
+            tokenizer, problems_processed, df["GT Question"]
+        )
+        X = encoded_to_numpy(problems_encoded)
+        y = encoded_to_numpy(answers_encoded)
+    except Exception as e:
+        print(f"Error during data processing: {e}")
+        return
 
-    problems_processed = add_special_tokens(df)
+    try:
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, random_state=42, train_size=0.8
+        )
 
-    problems_encoded, answers_encoded = encode(
-        tokenizer, problems_processed, df["GT Question"]
-    )
+        # Split the processed data to match the train/test splits
+        all_indices = np.arange(len(problems_processed))
+        train_indices, test_indices = train_test_split(
+            all_indices, random_state=42, train_size=0.8
+        )
 
-    X = encoded_to_numpy(problems_encoded)
-    y = encoded_to_numpy(answers_encoded)
+        train_problems_processed = [problems_processed[i] for i in train_indices]
+        test_problems_processed = [problems_processed[i] for i in test_indices]
 
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, random_state=42, train_size=0.8
-    )
-
-    # Split the processed data to match the train/test splits
-    all_indices = np.arange(len(problems_processed))
-    train_indices, test_indices = train_test_split(
-        all_indices, random_state=42, train_size=0.8
-    )
-
-    train_problems_processed = [problems_processed[i] for i in train_indices]
-    test_problems_processed = [problems_processed[i] for i in test_indices]
-
-    save(
-        X_train,
-        y_train,
-        train_problems_processed,
-        tokenizer,
-        vocab_size,
-        "train",
-        config,
-    )
-    save(X_test, y_test, test_problems_processed, tokenizer, vocab_size, "test", config)
+        save(
+            X_train,
+            y_train,
+            train_problems_processed,
+            tokenizer,
+            vocab_size,
+            "train",
+            config,
+        )
+        save(
+            X_test,
+            y_test,
+            test_problems_processed,
+            tokenizer,
+            vocab_size,
+            "test",
+            config,
+        )
+    except Exception as e:
+        print(f"Error during train/test split or saving: {e}")
+        return
 
 
 @cli.command(singleton=True)
