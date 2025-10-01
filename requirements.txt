@@ -9,3 +9,7 @@ wandb
 omegaconf
 hydra-core
 huggingface_hub
+scikit-learn
+pandas
+tokenizer
+adam-atan2-pytorch
