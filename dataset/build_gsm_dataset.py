@@ -117,9 +117,11 @@ def train_tokenizer(tokenizer, trainer, data):
     max_length = max(len(enc.ids) for enc in temp_encoded)
     max_length = min(max_length, 512)  # Cap at 512 tokens to avoid memory issues
 
+    # Set up padding with the correct token and ID
     tokenizer.enable_padding(
         length=max_length, pad_token="[PAD]", pad_id=tokenizer.token_to_id("[PAD]")
     )
+    tokenizer.enable_truncation(max_length=max_length)
     return tokenizer
 
 
@@ -235,16 +237,50 @@ def main(config):
         tokenizer, trainer = get_tokenizer()
         data = get_training_data(df)
         tokenizer = train_tokenizer(tokenizer, trainer, data)
-        problems_processed = add_special_tokens(df)
-        problems_encoded = tokenizer.encode_batch(problems_processed)
+        
+        # Get the max length for consistent tensor shapes
+        problems_processed_list = add_special_tokens(df)
+        temp_encoded = tokenizer.encode_batch(problems_processed_list)
+        max_length = max(len(enc.ids) for enc in temp_encoded)
+        max_length = min(max_length, 512)  # Cap at 512 tokens to avoid memory issues
+        
+        # Process problems and answers with proper handling of padding
+        problems_processed_list = add_special_tokens(df)
+        
+        # First, encode without padding to get raw sequences
+        tokenizer.no_padding()
+        problems_encoded_raw = tokenizer.encode_batch(problems_processed_list)
+        answers_encoded_raw = [tokenizer.encode(answer).ids for answer in df["GT Question"]]
+        
+        # Then pad all to the same length for consistent tensor shapes
+        tokenizer.enable_padding(
+            length=max_length, pad_token="[PAD]", pad_id=tokenizer.token_to_id("[PAD]")
+        )
+        
+        # Re-encode with padding enabled
+        problems_encoded = tokenizer.encode_batch(problems_processed_list)
         X = encoded_to_numpy(problems_encoded)
-
+        
+        # Create labels tensor - initialize with pad tokens
         y = np.full_like(X, tokenizer.token_to_id("[PAD]"))
-
-        for i, answer in enumerate(df["GT Question"]):
-            tokenizer.no_padding()
-            answer_encoded_ids = tokenizer.encode(answer).ids
-            y[i, : len(answer_encoded_ids)] = answer_encoded_ids
+        
+        # Process answers and align with input sequences
+        for i, answer_ids in enumerate(answers_encoded_raw):
+            if len(answer_ids) > 0:
+                # Find the end of the problem section in the input sequence
+                input_seq = X[i]
+                eoq_pos = -1
+                for j, token_id in enumerate(input_seq):
+                    if token_id == tokenizer.token_to_id("[EOQ]"):
+                        eoq_pos = j
+                        break
+                
+                # Fill the answer tokens starting after the [EOQ] token
+                if eoq_pos != -1 and eoq_pos + 1 < len(y[i]):
+                    # Place answer tokens after [EOQ]
+                    for k, answer_token_id in enumerate(answer_ids):
+                        if eoq_pos + 1 + k < len(y[i]):
+                            y[i, eoq_pos + 1 + k] = answer_token_id
 
     except Exception as e:
         print(f"Error during data processing: {e}")
@@ -256,13 +292,13 @@ def main(config):
         )
 
         # Split the processed data to match the train/test splits
-        all_indices = np.arange(len(problems_processed))
+        all_indices = np.arange(len(problems_processed_list))
         train_indices, test_indices = train_test_split(
             all_indices, random_state=42, train_size=0.8
         )
 
-        train_problems_processed = [problems_processed[i] for i in train_indices]
-        test_problems_processed = [problems_processed[i] for i in test_indices]
+        train_problems_processed = [problems_processed_list[i] for i in train_indices]
+        test_problems_processed = [problems_processed_list[i] for i in test_indices]
 
         save(
             X_train,
