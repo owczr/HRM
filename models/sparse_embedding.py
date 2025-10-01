@@ -42,12 +42,18 @@ class CastedSparseEmbedding(nn.Module):
     def forward(self, inputs: torch.Tensor) -> torch.Tensor:
         if not self.training:
             # Test mode, no gradient
-            return self.weights[inputs].to(self.cast_to)
+            # Clamp inputs to valid range to prevent out-of-bounds access
+            # This is important because CUDA has stricter bounds checking than MPS
+            clamped_inputs = torch.clamp(inputs, 0, self.weights.size(0) - 1)
+            return self.weights[clamped_inputs].to(self.cast_to)
 
         # Training mode, fill puzzle embedding from weights
         with torch.no_grad():
-            self.local_weights.copy_(self.weights[inputs])
-            self.local_ids.copy_(inputs)
+            # Clamp inputs to valid range to prevent out-of-bounds access
+            # This is important because CUDA has stricter bounds checking than MPS
+            clamped_inputs = torch.clamp(inputs, 0, self.weights.size(0) - 1)
+            self.local_weights.copy_(self.weights[clamped_inputs])
+            self.local_ids.copy_(clamped_inputs)
 
         return self.local_weights.to(self.cast_to)
 
