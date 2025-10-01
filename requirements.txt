@@ -1,5 +1,4 @@
 torch
-adam-atan2
 einops
 tqdm
 coolname
@@ -11,5 +10,5 @@ hydra-core
 huggingface_hub
 scikit-learn
 pandas
-tokenizer
+tokenizers
 adam-atan2-pytorch
