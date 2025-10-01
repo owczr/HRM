@@ -144,6 +144,15 @@ def encoded_to_numpy(encoded):
     return np.array([np.array(enc.ids) for enc in encoded])
 
 
+def save_tokenizer(tokenizer, config):
+    """Save the trained tokenizer to the output directory."""
+    save_dir = os.path.join(config.output_dir, "tokenizer")
+    os.makedirs(save_dir, exist_ok=True)
+
+    tokenizer_path = os.path.join(save_dir, "tokenizer.json")
+    tokenizer.save(tokenizer_path)
+
+
 def save(X, y, problems_processed, tokenizer, vocab_size, name, config):
     num_samples = len(problems_processed)
 
@@ -227,11 +236,16 @@ def main(config):
         data = get_training_data(df)
         tokenizer = train_tokenizer(tokenizer, trainer, data)
         problems_processed = add_special_tokens(df)
-        problems_encoded, answers_encoded = encode(
-            tokenizer, problems_processed, df["GT Question"]
-        )
+        problems_encoded = tokenizer.encode_batch(problems_processed)
         X = encoded_to_numpy(problems_encoded)
-        y = encoded_to_numpy(answers_encoded)
+
+        y = np.full_like(X, tokenizer.token_to_id("[PAD]"))
+
+        for i, answer in enumerate(df["GT Question"]):
+            tokenizer.no_padding()
+            answer_encoded_ids = tokenizer.encode(answer).ids
+            y[i, : len(answer_encoded_ids)] = answer_encoded_ids
+
     except Exception as e:
         print(f"Error during data processing: {e}")
         return
@@ -268,6 +282,9 @@ def main(config):
             "test",
             config,
         )
+
+        # Save the tokenizer
+        save_tokenizer(tokenizer, config)
     except Exception as e:
         print(f"Error during train/test split or saving: {e}")
         return
