@@ -223,6 +223,9 @@ def save_train_state(config: PretrainConfig, train_state: TrainState):
         os.path.join(config.checkpoint_path, f"step_{train_state.step}"),
     )
 
+    if wandb.run is not None:
+        wandb.save(config.checkpoint_path)
+
 
 def compute_lr(base_lr: float, config: PretrainConfig, train_state: TrainState):
     return cosine_schedule_with_warmup_lr_lambda(
