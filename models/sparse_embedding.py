@@ -40,16 +40,13 @@ class CastedSparseEmbedding(nn.Module):
         )
 
     def forward(self, inputs: torch.Tensor) -> torch.Tensor:
+        print(
+            "[SparseEmbedding] "
+            f"num_emb={self.weights.size(0)} | w_device={self.weights.device} w_dtype={self.weights.dtype} "
+            f"| in_device={inputs.device} in_dtype={inputs.dtype} "
+            f"| shape={tuple(inputs.shape)} | min={int(inputs.min().item())} | max={int(inputs.max().item())}"
+        )
         if not self.training:
-            try:
-                print(
-                    "[SparseEmbedding] "
-                    f"num_emb={self.weights.size(0)} | dtype={inputs.dtype} | "
-                    f"shape={tuple(inputs.shape)} | min={int(inputs.min().item())} | "
-                    f"max={int(inputs.max().item())}"
-                )
-            except Exception:
-                pass
             # Test mode, no gradient
             return self.weights[inputs].to(self.cast_to)
 
