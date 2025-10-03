@@ -541,6 +541,7 @@ def launch(hydra_config: DictConfig):
             print(metrics, train_state.step)
             if RANK == 0 and metrics is not None:
                 wandb.log(metrics, step=train_state.step)
+                print("Logged!")
                 progress_bar.update(train_state.step - progress_bar.n)  # type: ignore
 
         ############ Evaluation
@@ -556,6 +557,7 @@ def launch(hydra_config: DictConfig):
 
         print(metrics, train_state.step)
         if RANK == 0 and metrics is not None:
+            print("Also logged!")
             wandb.log(metrics, step=train_state.step)
 
         ############ Checkpointing
