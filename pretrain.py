@@ -514,6 +514,14 @@ def launch(hydra_config: DictConfig):
             config=config.model_dump(),
             settings=wandb.Settings(_disable_stats=True),
         )  # type: ignore
+        print("Initialized Weights & Biases with:")
+        print(
+            dict(
+                project=config.project_name,
+                name=config.run_name,
+                config=config.model_dump(),
+            )
+        )
         wandb.log(
             {"num_params": sum(x.numel() for x in train_state.model.parameters())},
             step=0,
