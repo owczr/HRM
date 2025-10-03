@@ -554,6 +554,7 @@ def launch(hydra_config: DictConfig):
         )
 
         if RANK == 0 and metrics is not None:
+            print(metrics, train_state.step)
             wandb.log(metrics, step=train_state.step)
 
         ############ Checkpointing
