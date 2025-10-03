@@ -315,7 +315,9 @@ def evaluate(
         metric_global_batch_size = [0 for _ in range(len(set_ids))]
 
         carry = None
-        for set_name, batch, global_batch_size in eval_loader:
+        for set_name, batch, global_batch_size in tqdm.tqdm(
+            eval_loader, desc=f"Evaluation - Rank {rank}"
+        ):
             # To device
             batch = {k: v.cuda() for k, v in batch.items()}
             with torch.device("cuda"):
@@ -327,14 +329,8 @@ def evaluate(
                     carry=carry, batch=batch, return_keys=config.eval_save_outputs
                 )
 
-                print(
-                    f"Evaluation batch: all_finished tensor = {all_finish}, all() = {all_finish.all().item()}, shape = {all_finish.shape}"
-                )
-
                 if all_finish:
                     break
-
-            print("Finished evaluation batch!")
 
             for collection in (batch, preds):
                 for k, v in collection.items():
