@@ -174,17 +174,15 @@ def save(X, y, problems_processed, tokenizer, vocab_size, name, config):
     }
 
     metadata = PuzzleDatasetMetadata(
-        **{
-            "pad_id": tokenizer.token_to_id("[PAD]"),
-            "ignore_label_id": tokenizer.token_to_id("[PAD]"),
-            "blank_identifier_id": tokenizer.token_to_id("[PAD]"),
-            "vocab_size": vocab_size,
-            "seq_len": results["inputs"].shape[1],
-            "num_puzzle_identifiers": 1,
-            "total_groups": num_samples,
-            "mean_puzzle_examples": 1.0,
-            "sets": ["all"],
-        }
+        seq_len=results["inputs"].shape[1],
+        vocab_size=vocab_size,
+        pad_id=tokenizer.token_to_id("[PAD]"),
+        ignore_label_id=tokenizer.token_to_id("[PAD]"),
+        blank_identifier_id=tokenizer.token_to_id("[PAD]"),
+        num_puzzle_identifiers=1,
+        total_groups=len(results["group_indices"]) - 1,
+        mean_puzzle_examples=1,
+        sets=["all"],
     )
 
     # Save metadata as JSON.
