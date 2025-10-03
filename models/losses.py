@@ -1,9 +1,8 @@
-from typing import Any, Tuple, Dict, Sequence, Optional
+from typing import Any, Dict, Optional, Sequence, Tuple
 
 import torch
 import torch.nn.functional as F
 from torch import nn
-
 
 IGNORE_LABEL_ID = -100
 
@@ -93,6 +92,18 @@ class ACTLossHead(nn.Module):
                 "steps": torch.where(valid_metrics, new_carry.steps, 0).sum(),
             }
 
+        # Q continue (bootstrapping target loss)
+        logits = outputs["logits"]
+        C = logits.size(-1)
+
+        # TEMP: debug
+        with torch.no_grad():
+            Lmin = int(labels.min().item())
+            Lmax = int(labels.max().item())
+            print(
+                f"[EVAL DEBUG] C={C}, labels range=[{Lmin},{Lmax}], "
+                f"ignore(-100 used in loss) present? {bool((labels == -100).any())}"
+            )
         # Losses
         # FIXME: Assuming the batch is always full
         lm_loss = (
@@ -112,7 +123,6 @@ class ACTLossHead(nn.Module):
             }
         )
 
-        # Q continue (bootstrapping target loss)
         q_continue_loss = 0
         if "target_q_continue" in outputs:
             q_continue_loss = F.binary_cross_entropy_with_logits(
