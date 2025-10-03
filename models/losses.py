@@ -1,34 +1,11 @@
-from typing import Any, Dict, Optional, Sequence, Tuple
+from typing import Any, Tuple, Dict, Sequence, Optional
 
 import torch
 import torch.nn.functional as F
 from torch import nn
 
-try:
-    disable_compile = torch._dynamo.disable  # PyTorch 2.x
-except AttributeError:
-    from torch._dynamo import disable as disable_compile
 
 IGNORE_LABEL_ID = -100
-
-
-def _assert_labels_ok(logits: torch.Tensor, labels: torch.Tensor, ignore_idx: int):
-    assert logits.dim() >= 2, f"logits rank {logits.dim()} < 2"
-    C = logits.size(-1)
-    assert labels.shape == logits.shape[:-1], (
-        f"labels shape {labels.shape} != logits[:-1] {logits.shape[:-1]}"
-    )
-    assert labels.dtype in (torch.int64, torch.long), (
-        f"labels dtype must be torch.long, got {labels.dtype}"
-    )
-    flat = labels.view(-1)
-    if ignore_idx is not None:
-        flat = flat[flat != ignore_idx]
-    if flat.numel():
-        mn = int(flat.min().item())
-        mx = int(flat.max().item())
-        assert mn >= 0, f"found negative labels (min={mn}) other than ignore_idx"
-        assert mx < C, f"max label {mx} >= num_classes {C}"
 
 
 def s(x, epsilon=1e-30):
@@ -118,16 +95,10 @@ class ACTLossHead(nn.Module):
 
         # Losses
         # FIXME: Assuming the batch is always full
-        logits = outputs["logits"]
-        _assert_labels_ok(logits, labels, IGNORE_LABEL_ID)
-
-        # --- new: run the token-level loss in eager to avoid Triton fusion issues ---
-        with disable_compile():
-            token_losses = self.loss_fn(
-                logits, labels, ignore_index=IGNORE_LABEL_ID
-            ).to(torch.float32)  # shape: B x SeqLen
-
-        lm_loss = (token_losses / loss_divisor).sum()
+        lm_loss = (
+            self.loss_fn(outputs["logits"], labels, ignore_index=IGNORE_LABEL_ID)
+            / loss_divisor
+        ).sum()
         q_halt_loss = F.binary_cross_entropy_with_logits(
             outputs["q_halt_logits"],
             seq_is_correct.to(outputs["q_halt_logits"].dtype),
