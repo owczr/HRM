@@ -327,8 +327,14 @@ def evaluate(
                     carry=carry, batch=batch, return_keys=config.eval_save_outputs
                 )
 
+                print(
+                    f"Evaluation batch: all_finished tensor = {all_finish}, all() = {all_finish.all().item()}, shape = {all_finish.shape}"
+                )
+
                 if all_finish:
                     break
+
+            print("Finished evaluation batch!")
 
             for collection in (batch, preds):
                 for k, v in collection.items():
