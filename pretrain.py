@@ -514,14 +514,6 @@ def launch(hydra_config: DictConfig):
             config=config.model_dump(),
             settings=wandb.Settings(_disable_stats=True),
         )  # type: ignore
-        print("Initialized Weights & Biases with:")
-        print(
-            dict(
-                project=config.project_name,
-                name=config.run_name,
-                config=config.model_dump(),
-            )
-        )
         wandb.log(
             {"num_params": sum(x.numel() for x in train_state.model.parameters())},
             step=0,
@@ -546,10 +538,8 @@ def launch(hydra_config: DictConfig):
                 world_size=WORLD_SIZE,
             )
 
-            print(metrics, train_state.step)
             if RANK == 0 and metrics is not None:
                 wandb.log(metrics, step=train_state.step)
-                print("Logged!")
                 progress_bar.update(train_state.step - progress_bar.n)  # type: ignore
 
         ############ Evaluation
@@ -563,9 +553,7 @@ def launch(hydra_config: DictConfig):
             world_size=WORLD_SIZE,
         )
 
-        print(metrics, train_state.step)
         if RANK == 0 and metrics is not None:
-            print("Also logged!")
             wandb.log(metrics, step=train_state.step)
 
         ############ Checkpointing
