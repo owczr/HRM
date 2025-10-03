@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import tokenizers
 from argdantic import ArgParser
+from common import PuzzleDatasetMetadata
 from pydantic import BaseModel
 from sklearn.model_selection import train_test_split
 from tokenizers.models import WordLevel
@@ -172,24 +173,26 @@ def save(X, y, problems_processed, tokenizer, vocab_size, name, config):
         "puzzle_identifiers": np.zeros(num_samples, dtype=np.int32),
     }
 
-    metadata = {
-        "pad_id": tokenizer.token_to_id("[PAD]"),
-        "ignore_label_id": tokenizer.token_to_id("[PAD]"),
-        "blank_identifier_id": tokenizer.token_to_id("[PAD]"),
-        "vocab_size": vocab_size,
-        "seq_len": results["inputs"].shape[1],
-        "num_puzzle_identifiers": 1,
-        "total_groups": num_samples,
-        "mean_puzzle_examples": 1.0,
-        "sets": ["all"],
-    }
+    metadata = PuzzleDatasetMetadata(
+        **{
+            "pad_id": tokenizer.token_to_id("[PAD]"),
+            "ignore_label_id": tokenizer.token_to_id("[PAD]"),
+            "blank_identifier_id": tokenizer.token_to_id("[PAD]"),
+            "vocab_size": vocab_size,
+            "seq_len": results["inputs"].shape[1],
+            "num_puzzle_identifiers": 1,
+            "total_groups": num_samples,
+            "mean_puzzle_examples": 1.0,
+            "sets": ["all"],
+        }
+    )
 
     # Save metadata as JSON.
     save_dir = os.path.join(config.output_dir, name)
     os.makedirs(save_dir, exist_ok=True)
 
     with open(os.path.join(save_dir, "dataset.json"), "w") as f:
-        json.dump(metadata, f)
+        json.dump(metadata.model_dump(), f)
 
     # Save data
     for k, v in results.items():
@@ -237,33 +240,35 @@ def main(config):
         tokenizer, trainer = get_tokenizer()
         data = get_training_data(df)
         tokenizer = train_tokenizer(tokenizer, trainer, data)
-        
+
         # Get the max length for consistent tensor shapes
         problems_processed_list = add_special_tokens(df)
         temp_encoded = tokenizer.encode_batch(problems_processed_list)
         max_length = max(len(enc.ids) for enc in temp_encoded)
         max_length = min(max_length, 512)  # Cap at 512 tokens to avoid memory issues
-        
+
         # Process problems and answers with proper handling of padding
         problems_processed_list = add_special_tokens(df)
-        
+
         # First, encode without padding to get raw sequences
         tokenizer.no_padding()
         problems_encoded_raw = tokenizer.encode_batch(problems_processed_list)
-        answers_encoded_raw = [tokenizer.encode(answer).ids for answer in df["GT Question"]]
-        
+        answers_encoded_raw = [
+            tokenizer.encode(answer).ids for answer in df["GT Question"]
+        ]
+
         # Then pad all to the same length for consistent tensor shapes
         tokenizer.enable_padding(
             length=max_length, pad_token="[PAD]", pad_id=tokenizer.token_to_id("[PAD]")
         )
-        
+
         # Re-encode with padding enabled
         problems_encoded = tokenizer.encode_batch(problems_processed_list)
         X = encoded_to_numpy(problems_encoded)
-        
+
         # Create labels tensor - initialize with pad tokens
         y = np.full_like(X, tokenizer.token_to_id("[PAD]"))
-        
+
         # Process answers and align with input sequences
         for i, answer_ids in enumerate(answers_encoded_raw):
             if len(answer_ids) > 0:
@@ -274,7 +279,7 @@ def main(config):
                     if token_id == tokenizer.token_to_id("[EOQ]"):
                         eoq_pos = j
                         break
-                
+
                 # Fill the answer tokens starting after the [EOQ] token
                 if eoq_pos != -1 and eoq_pos + 1 < len(y[i]):
                     # Place answer tokens after [EOQ]
