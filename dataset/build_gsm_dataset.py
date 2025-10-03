@@ -15,7 +15,7 @@ from tokenizers.models import WordLevel
 from tokenizers.pre_tokenizers import Split
 from tokenizers.trainers import WordLevelTrainer
 
-SPECIAL_TOKENS = ["[BOQ]", "[EOQ]", "[BOP]", "[EOP]", "[PAD]", "[UNK]"]
+SPECIAL_TOKENS = ["[PAD]", "[UNK]", "[BOQ]", "[EOQ]", "[BOP]", "[EOP]"]
 cli = ArgParser()
 
 
