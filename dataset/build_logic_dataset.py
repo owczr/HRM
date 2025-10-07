@@ -86,27 +86,6 @@ def read_data(
     return facts, untrue, cannot_ask, goal, rules, answers  # type: ignore
 
 
-def get_vocabulary(*args):
-    def _get_chars(data: pd.Series):
-        cat = []
-
-        for problem in data.unique():
-            cat += problem
-
-        return list(set(cat))
-
-    vocabulary_set = set(SPECIAL_TOKENS)
-
-    for arg in args:
-        chars = _get_chars(data=arg)
-        vocabulary_set |= set(chars)
-
-    vocabulary = list(vocabulary_set)
-    vocab_size = len(vocabulary)
-
-    return vocabulary, vocab_size
-
-
 def get_tokenizer():
     tokenizer = tokenizers.Tokenizer(WordLevel(unk_token="[UNK]"))
 
@@ -252,7 +231,6 @@ def main(config):
         return
 
     try:
-        _, vocab_size = get_vocabulary(facts, untrue, cannot_ask, goal, rules, answers)
         tokenizer, trainer = get_tokenizer()
         data = get_training_data(facts, untrue, cannot_ask, goal, rules, answers)
         tokenizer = train_tokenizer(tokenizer, trainer, data)
@@ -308,7 +286,7 @@ def main(config):
             y_train,
             train_problems_processed,
             tokenizer,
-            vocab_size,
+            tokenizer.get_vocab_size(),
             "train",
             config,
         )
@@ -317,7 +295,7 @@ def main(config):
             y_test,
             test_problems_processed,
             tokenizer,
-            vocab_size,
+            tokenizer.get_vocab_size(),
             "test",
             config,
         )
