@@ -12,7 +12,7 @@ from argdantic import ArgParser
 from pydantic import BaseModel
 from sklearn.model_selection import train_test_split
 from tokenizers.models import WordLevel
-from tokenizers.pre_tokenizers import Split
+from tokenizers.pre_tokenizers import Split, Whitespace
 from tokenizers.trainers import WordLevelTrainer
 
 # f"[BOF]{fact}[EOF][BOU]{unt}[EOU][BOC]{cant}[EOC][BOR]{rule}[EOR][BOG]{goal}[EOG]"
@@ -119,7 +119,7 @@ def get_tokenizer():
         ]
     )
 
-    tokenizer.pre_tokenizer = Split("", behavior="isolated")  # type: ignore
+    tokenizer.pre_tokenizer = Whitespace()
 
     trainer = WordLevelTrainer(min_frequency=1, special_tokens=SPECIAL_TOKENS)
 
