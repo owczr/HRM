@@ -34,6 +34,13 @@ SPECIAL_TOKENS = [
     "[EOG]",
     *STRUCTURE_TOKENS,
 ]
+
+SPECIAL_ADDED_TOKENS = [
+    tokenizers.AddedToken(
+        token, single_word=False, lstrip=False, rstrip=False, normalized=False
+    )
+    for token in SPECIAL_TOKENS
+]
 cli = ArgParser()
 
 
@@ -92,16 +99,6 @@ def read_data(
 
 def get_tokenizer():
     tokenizer = tokenizers.Tokenizer(WordLevel(unk_token="[UNK]"))
-
-    tokenizer.add_special_tokens(
-        [
-            tokenizers.AddedToken(
-                token, single_word=False, lstrip=False, rstrip=False, normalized=False
-            )
-            for token in SPECIAL_TOKENS
-        ]
-    )
-
     tokenizer.pre_tokenizer = Whitespace()
 
     trainer = WordLevelTrainer(min_frequency=1, special_tokens=SPECIAL_TOKENS)
@@ -116,8 +113,22 @@ def get_training_data(*args):
     return data
 
 
+def _validate_vocab_is_compact(tokenizer: tokenizers.Tokenizer) -> None:
+    vocab = tokenizer.get_vocab()
+    ids = set(vocab.values())
+    expected = set(range(len(vocab)))
+    missing = sorted(expected - ids)
+    if missing:
+        raise ValueError(
+            "Tokenizer vocabulary contains non-contiguous ids: "
+            + ", ".join(map(str, missing))
+        )
+
+
 def train_tokenizer(tokenizer, trainer, data):
     tokenizer.train_from_iterator(data, trainer)
+    tokenizer.add_special_tokens(SPECIAL_ADDED_TOKENS)
+    _validate_vocab_is_compact(tokenizer)
 
     temp_encoded = tokenizer.encode_batch(data)
     max_length = max(len(enc.ids) for enc in temp_encoded)
