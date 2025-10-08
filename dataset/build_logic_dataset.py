@@ -1,3 +1,4 @@
+import ast
 import json
 import os
 import tarfile
@@ -12,10 +13,12 @@ from argdantic import ArgParser
 from pydantic import BaseModel
 from sklearn.model_selection import train_test_split
 from tokenizers.models import WordLevel
-from tokenizers.pre_tokenizers import Split, Whitespace
+from tokenizers.pre_tokenizers import Whitespace
 from tokenizers.trainers import WordLevelTrainer
 
 # f"[BOF]{fact}[EOF][BOU]{unt}[EOU][BOC]{cant}[EOC][BOR]{rule}[EOR][BOG]{goal}[EOG]"
+STRUCTURE_TOKENS = ["<EMPTY>", "<RULE>", "</RULE>"]
+
 SPECIAL_TOKENS = [
     "[PAD]",
     "[UNK]",
@@ -29,6 +32,14 @@ SPECIAL_TOKENS = [
     "[EOR]",
     "[BOG]",
     "[EOG]",
+    *STRUCTURE_TOKENS,
+]
+
+SPECIAL_ADDED_TOKENS = [
+    tokenizers.AddedToken(
+        token, single_word=False, lstrip=False, rstrip=False, normalized=False
+    )
+    for token in SPECIAL_TOKENS
 ]
 cli = ArgParser()
 
@@ -88,16 +99,6 @@ def read_data(
 
 def get_tokenizer():
     tokenizer = tokenizers.Tokenizer(WordLevel(unk_token="[UNK]"))
-
-    tokenizer.add_special_tokens(
-        [
-            tokenizers.AddedToken(
-                token, single_word=False, lstrip=False, rstrip=False, normalized=False
-            )
-            for token in SPECIAL_TOKENS
-        ]
-    )
-
     tokenizer.pre_tokenizer = Whitespace()
 
     trainer = WordLevelTrainer(min_frequency=1, special_tokens=SPECIAL_TOKENS)
@@ -106,12 +107,28 @@ def get_tokenizer():
 
 
 def get_training_data(*args):
-    data = np.concatenate(args)
+    data = []
+    for arg in args:
+        data.extend(list(arg))
     return data
+
+
+def _validate_vocab_is_compact(tokenizer: tokenizers.Tokenizer) -> None:
+    vocab = tokenizer.get_vocab()
+    ids = set(vocab.values())
+    expected = set(range(len(vocab)))
+    missing = sorted(expected - ids)
+    if missing:
+        raise ValueError(
+            "Tokenizer vocabulary contains non-contiguous ids: "
+            + ", ".join(map(str, missing))
+        )
 
 
 def train_tokenizer(tokenizer, trainer, data):
     tokenizer.train_from_iterator(data, trainer)
+    tokenizer.add_special_tokens(SPECIAL_ADDED_TOKENS)
+    _validate_vocab_is_compact(tokenizer)
 
     temp_encoded = tokenizer.encode_batch(data)
     max_length = max(len(enc.ids) for enc in temp_encoded)
@@ -124,12 +141,81 @@ def train_tokenizer(tokenizer, trainer, data):
     return tokenizer
 
 
+def _safe_literal_eval(value: str):
+    if not isinstance(value, str):
+        return value
+
+    value = value.strip()
+    if not value:
+        return value
+
+    try:
+        return ast.literal_eval(value)
+    except (SyntaxError, ValueError):
+        return value
+
+
+def _ensure_sequence(value):
+    if isinstance(value, (list, tuple)):
+        return list(value)
+    if value in ("", None):
+        return []
+    return [value]
+
+
+def _normalize_symbol(symbol: str) -> str:
+    return symbol.strip().replace(" ", "_")
+
+
+def process_symbolic_list(raw_value: str) -> str:
+    parsed = _safe_literal_eval(raw_value)
+    items = _ensure_sequence(parsed)
+    if not items:
+        return "<EMPTY>"
+    return " ".join(_normalize_symbol(str(item)) for item in items)
+
+
+def process_rules(raw_value: str) -> str:
+    parsed = _safe_literal_eval(raw_value)
+    clauses = _ensure_sequence(parsed)
+    if not clauses:
+        return "<EMPTY>"
+
+    formatted_clauses = []
+    for clause in clauses:
+        clause_items = _ensure_sequence(clause)
+        if clause_items:
+            clause_text = " ".join(
+                _normalize_symbol(str(item)) for item in clause_items
+            )
+        else:
+            clause_text = "<EMPTY>"
+        formatted_clauses.append(f"<RULE> {clause_text} </RULE>")
+
+    return " ".join(formatted_clauses)
+
+
 def add_special_tokens(facts, untrue, cannot_ask, goals, rules):
     processed = []
     for fact, unt, cant, goal, rule in zip(facts, untrue, cannot_ask, goals, rules):
-        processed.append(
-            f"[BOF]{fact}[EOF][BOU]{unt}[EOU][BOC]{cant}[EOC][BOR]{rule}[EOR][BOG]{goal}[EOG]"
-        )
+        sections = [
+            "[BOF]",
+            fact,
+            "[EOF]",
+            "[BOU]",
+            unt,
+            "[EOU]",
+            "[BOC]",
+            cant,
+            "[EOC]",
+            "[BOR]",
+            rule,
+            "[EOR]",
+            "[BOG]",
+            goal,
+            "[EOG]",
+        ]
+        processed.append(" ".join(section for section in sections if section))
 
     return processed
 
@@ -231,13 +317,37 @@ def main(config):
         return
 
     try:
+        facts = facts.fillna("").astype(str)
+        untrue = untrue.fillna("").astype(str)
+        cannot_ask = cannot_ask.fillna("").astype(str)
+        goal = goal.fillna("").astype(str)
+        rules = rules.fillna("").astype(str)
+        answers = answers.fillna("").astype(str)
+
+        processed_facts = facts.apply(process_symbolic_list).tolist()
+        processed_untrue = untrue.apply(process_symbolic_list).tolist()
+        processed_cannot_ask = cannot_ask.apply(process_symbolic_list).tolist()
+        processed_goals = goal.apply(process_symbolic_list).tolist()
+        processed_rules = rules.apply(process_rules).tolist()
+
         tokenizer, trainer = get_tokenizer()
-        data = get_training_data(facts, untrue, cannot_ask, goal, rules, answers)
+        data = get_training_data(
+            processed_facts,
+            processed_untrue,
+            processed_cannot_ask,
+            processed_goals,
+            processed_rules,
+            answers.tolist(),
+        )
         tokenizer = train_tokenizer(tokenizer, trainer, data)
 
         # Get the max length for consistent tensor shapes
         problems_processed_list = add_special_tokens(
-            facts, untrue, cannot_ask, goal, rules
+            processed_facts,
+            processed_untrue,
+            processed_cannot_ask,
+            processed_goals,
+            processed_rules,
         )
         temp_encoded = tokenizer.encode_batch(problems_processed_list)
         max_length = max(len(enc.ids) for enc in temp_encoded)
