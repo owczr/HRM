@@ -168,7 +168,13 @@ def run_inference(
             if bool(all_finish):
                 break
 
-    return {k: v.cpu().numpy() for k, v in outputs.items()}
+    def _to_numpy(tensor: torch.Tensor) -> np.ndarray:
+        tensor = tensor.detach()
+        if tensor.dtype in (torch.float16, torch.bfloat16):
+            tensor = tensor.to(torch.float32)
+        return tensor.cpu().numpy()
+
+    return {k: _to_numpy(v) for k, v in outputs.items()}
 
 
 def _parse_args() -> argparse.Namespace:
