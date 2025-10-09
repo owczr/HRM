@@ -149,12 +149,14 @@ def run_inference(
             assign=True,
         )
 
+    train_state.model.to(torch_device)
     train_state.model.eval()
 
     batch = _prepare_batch(input_array, metadata, puzzle_identifier, torch_device)
 
     with torch.inference_mode():
-        carry = train_state.model.initial_carry(batch)
+        with torch.device(torch_device):
+            carry = train_state.model.initial_carry(batch)
         outputs: Dict[str, torch.Tensor] = {}
 
         while True:
