@@ -114,20 +114,21 @@ def run_inference(
         Iterable of model outputs to return. Defaults to
         ``("logits", "q_halt_logits", "q_continue_logits")``.
     device:
-        Torch device string. Defaults to ``"cuda"`` if available, otherwise
-        ``"cpu"``. Note that the model currently expects CUDA tensors.
+        Torch device string. Defaults to ``"cuda"`` if available, then ``"mps"``
+        on Apple Silicon, otherwise ``"cpu"``.
     """
 
     if return_keys is None:
         return_keys = ("logits", "q_halt_logits", "q_continue_logits")
 
     if device is None:
-        device = "cuda" if torch.cuda.is_available() else "cpu"
+        if torch.cuda.is_available():
+            device = "cuda"
+        elif getattr(torch.backends, "mps", None) is not None and torch.backends.mps.is_available():
+            device = "mps"
+        else:
+            device = "cpu"
     torch_device = torch.device(device)
-    if torch_device.type != "cuda":
-        raise RuntimeError(
-            "HierarchicalReasoningModel currently requires CUDA for inference."
-        )
 
     config = _load_config(checkpoint)
     metadata = _load_metadata(config.data_path)
@@ -135,7 +136,9 @@ def run_inference(
     config.eval_save_outputs = list(return_keys)
     config.checkpoint_path = os.path.dirname(checkpoint)
 
-    train_state = init_train_state(config, metadata, world_size=1)
+    train_state = init_train_state(
+        config, metadata, world_size=1, device=torch_device
+    )
 
     state_dict = torch.load(checkpoint, map_location=device)
     try:
