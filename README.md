@@ -174,6 +174,28 @@ OMP_NUM_THREADS=8 torchrun --nproc-per-node 8 evaluate.py checkpoint=<CHECKPOINT
 
 * Then use the provided `arc_eval.ipynb` notebook to finalize and inspect your results.
 
+## Serve Inference over HTTP 🌐
+
+You can keep a checkpointed model in memory and expose it through a FastAPI server:
+
+```bash
+python api_server.py --checkpoint <CHECKPOINT_PATH> --host 0.0.0.0 --port 8000
+```
+
+Send a request with the input token ids, puzzle identifier, and optional return keys:
+
+```bash
+curl -X POST "http://localhost:8000/infer" \
+  -H "Content-Type: application/json" \
+  -d '{
+        "input_array": [0, 1, 2, 3],
+        "puzzle_identifier": 0,
+        "return_keys": ["logits", "q_halt_logits", "q_continue_logits"]
+      }'
+```
+
+The response mirrors the information printed by `inference.py`, including tensor shapes, raw values, and the argmax token predictions when logits are available.
+
 ## Notes
 
  - Small-sample learning typically exhibits accuracy variance of around ±2 points.
