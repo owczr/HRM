@@ -3,6 +3,7 @@
 import argparse
 import asyncio
 import os
+import traceback
 from typing import Any, Dict, Iterable, List, Optional, Union
 
 import numpy as np
@@ -124,13 +125,14 @@ class InferenceResponse(BaseModel):
 
 
 def create_app(service: InferenceService) -> FastAPI:
-    app = FastAPI(title="HRM Inference Server")
+    app = FastAPI(title="HRM Inference Server", debug=True)
 
     @app.post("/infer", response_model=InferenceResponse)
     async def infer(request: InferenceRequest) -> InferenceResponse:
         try:
             input_array = np.asarray(request.input_array, dtype=np.int32)
         except ValueError as exc:  # pragma: no cover - numpy raises ValueError
+            traceback.print_exc()
             raise HTTPException(status_code=400, detail=str(exc)) from exc
 
         try:
@@ -141,8 +143,10 @@ def create_app(service: InferenceService) -> FastAPI:
                 request.return_keys,
             )
         except ValueError as exc:
+            traceback.print_exc()
             raise HTTPException(status_code=400, detail=str(exc)) from exc
         except Exception as exc:
+            traceback.print_exc()
             raise HTTPException(status_code=500, detail=str(exc)) from exc
 
         formatted_outputs = {
@@ -193,7 +197,7 @@ def main() -> None:
 
     import uvicorn
 
-    uvicorn.run(app, host=args.host, port=args.port)
+    uvicorn.run(app, host=args.host, port=args.port, log_level="debug")
 
 
 if __name__ == "__main__":
