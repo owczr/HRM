@@ -11,7 +11,13 @@ import torch
 import torch.distributed as dist
 import tqdm
 import yaml
-from adam_atan2 import AdamATan2
+
+try:
+    from adam_atan2 import AdamATan2
+except ImportError:
+    print("Package adam_atan2 not available.")
+    from adam_atan2_pytorch import AdamAtan2 as AdamATan2
+
 from omegaconf import DictConfig
 from torch import nn
 from torch.utils.data import DataLoader
@@ -147,7 +153,7 @@ def create_model(
         ),
         AdamATan2(
             model.parameters(),
-            lr=0,  # Needs to be set by scheduler
+            lr=0.0001,  # Needs to be set by scheduler
             weight_decay=config.weight_decay,
             betas=(config.beta1, config.beta2),
         ),
