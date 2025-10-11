@@ -3,6 +3,7 @@
 import argparse
 import asyncio
 import os
+import traceback
 from typing import Any, Dict, Iterable, List, Optional, Union
 
 import numpy as np
@@ -21,7 +22,10 @@ def _select_device(device: Optional[str]) -> torch.device:
     if torch.cuda.is_available():
         return torch.device("cuda")
 
-    if getattr(torch.backends, "mps", None) is not None and torch.backends.mps.is_available():
+    if (
+        getattr(torch.backends, "mps", None) is not None
+        and torch.backends.mps.is_available()
+    ):
         return torch.device("mps")
 
     return torch.device("cpu")
@@ -121,13 +125,14 @@ class InferenceResponse(BaseModel):
 
 
 def create_app(service: InferenceService) -> FastAPI:
-    app = FastAPI(title="HRM Inference Server")
+    app = FastAPI(title="HRM Inference Server", debug=True)
 
     @app.post("/infer", response_model=InferenceResponse)
     async def infer(request: InferenceRequest) -> InferenceResponse:
         try:
             input_array = np.asarray(request.input_array, dtype=np.int32)
         except ValueError as exc:  # pragma: no cover - numpy raises ValueError
+            traceback.print_exc()
             raise HTTPException(status_code=400, detail=str(exc)) from exc
 
         try:
@@ -138,8 +143,10 @@ def create_app(service: InferenceService) -> FastAPI:
                 request.return_keys,
             )
         except ValueError as exc:
+            traceback.print_exc()
             raise HTTPException(status_code=400, detail=str(exc)) from exc
         except Exception as exc:
+            traceback.print_exc()
             raise HTTPException(status_code=500, detail=str(exc)) from exc
 
         formatted_outputs = {
@@ -163,9 +170,13 @@ def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Run a FastAPI server for HRM inference.",
     )
-    parser.add_argument("--checkpoint", required=True, help="Path to the model checkpoint.")
+    parser.add_argument(
+        "--checkpoint", required=True, help="Path to the model checkpoint."
+    )
     parser.add_argument("--host", default="0.0.0.0", help="Host interface to bind to.")
-    parser.add_argument("--port", type=int, default=8000, help="Port to bind the server to.")
+    parser.add_argument(
+        "--port", type=int, default=8000, help="Port to bind the server to."
+    )
     parser.add_argument(
         "--device",
         default=None,
@@ -186,9 +197,8 @@ def main() -> None:
 
     import uvicorn
 
-    uvicorn.run(app, host=args.host, port=args.port)
+    uvicorn.run(app, host=args.host, port=args.port, log_level="debug")
 
 
 if __name__ == "__main__":
     main()
-
