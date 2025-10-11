@@ -1,4 +1,5 @@
 """Utility script to run inference with a pretrained HRM checkpoint."""
+
 import argparse
 import json
 import os
@@ -78,9 +79,7 @@ def _prepare_batch(
             f"{metadata.num_puzzle_identifiers - 1}."
         )
 
-    puzzle_identifiers = np.full(
-        (batch_size,), puzzle_identifier, dtype=np.int32
-    )
+    puzzle_identifiers = np.full((batch_size,), puzzle_identifier, dtype=np.int32)
 
     batch_np = {
         "inputs": inputs,
@@ -124,7 +123,10 @@ def run_inference(
     if device is None:
         if torch.cuda.is_available():
             device = "cuda"
-        elif getattr(torch.backends, "mps", None) is not None and torch.backends.mps.is_available():
+        elif (
+            getattr(torch.backends, "mps", None) is not None
+            and torch.backends.mps.is_available()
+        ):
             device = "mps"
         else:
             device = "cpu"
@@ -136,9 +138,7 @@ def run_inference(
     config.eval_save_outputs = list(return_keys)
     config.checkpoint_path = os.path.dirname(checkpoint)
 
-    train_state = init_train_state(
-        config, metadata, world_size=1, device=torch_device
-    )
+    train_state = init_train_state(config, metadata, world_size=1, device=torch_device)
 
     state_dict = torch.load(checkpoint, map_location=device)
     try:
@@ -179,7 +179,9 @@ def run_inference(
 
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run inference with a HRM checkpoint.")
-    parser.add_argument("--checkpoint", required=True, help="Path to the model checkpoint.")
+    parser.add_argument(
+        "--checkpoint", required=True, help="Path to the model checkpoint."
+    )
     parser.add_argument(
         "--input-array",
         required=True,
@@ -220,6 +222,11 @@ def main():
 
     for key, value in outputs.items():
         print(f"{key}: shape={value.shape}\n{value}")
+
+    print("Predictions:")
+
+    predicted_tokens = np.argmax(outputs["logits"][0], axis=-1)  # Shape: (342,)
+    print(str(predicted_tokens))
 
 
 if __name__ == "__main__":
