@@ -1,17 +1,47 @@
 from typing import Tuple
 
 import torch
-from torch import nn
 import torch.nn.functional as F
+from torch import nn
 
 try:
-    from flash_attn_interface import flash_attn_func  # type: ignore[import]
+    try:
+        from flash_attn_interface import flash_attn_func  # type: ignore[import]
+    except ImportError:
+        # Fallback to FlashAttention 2
+        from flash_attn import flash_attn_func  # type: ignore[import]
+    FLASH_ATTN_AVAILABLE = True
 except ImportError:
-    # Fallback to FlashAttention 2
-    from flash_attn import flash_attn_func  # type: ignore[import]
+    # No FlashAttention available, will use fallback
+    FLASH_ATTN_AVAILABLE = False
 
 from models.common import trunc_normal_init_
 
+
+def flash_attn_func_fallback(q, k, v, causal=False):
+    """
+    Fallback implementation of flash_attn_func using PyTorch's scaled_dot_product_attention
+    """
+    # Transpose to match PyTorch's expected format: [batch_size, num_heads, seq_len, head_dim]
+    q = q.transpose(1, 2)
+    k = k.transpose(1, 2)
+    v = v.transpose(1, 2)
+
+    # Use PyTorch's built-in scaled dot-product attention
+    attn_output = F.scaled_dot_product_attention(q, k, v, is_causal=causal)
+
+    # Transpose back to match FlashAttention's output format: [batch_size, seq_len, num_heads, head_dim]
+    attn_output = attn_output.transpose(1, 2)
+
+    # Ensure the tensor is contiguous to avoid reshape issues on MPS
+    return attn_output.contiguous()
+
+
+# Use fallback if FlashAttention is not available
+if not FLASH_ATTN_AVAILABLE:
+    flash_attn_func = flash_attn_func_fallback
+
+from models.common import trunc_normal_init_
 
 CosSin = Tuple[torch.Tensor, torch.Tensor]
 

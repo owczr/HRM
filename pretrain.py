@@ -11,7 +11,13 @@ import torch
 import torch.distributed as dist
 import tqdm
 import yaml
-from adam_atan2 import AdamATan2
+
+try:
+    from adam_atan2 import AdamATan2
+except ImportError:
+    print("Package adam_atan2 not available.")
+    from adam_atan2_pytorch import AdamAtan2 as AdamATan2
+
 from omegaconf import DictConfig
 from torch import nn
 from torch.utils.data import DataLoader
@@ -105,7 +111,10 @@ def create_dataloader(
 
 
 def create_model(
-    config: PretrainConfig, train_metadata: PuzzleDatasetMetadata, world_size: int
+    config: PretrainConfig,
+    train_metadata: PuzzleDatasetMetadata,
+    world_size: int,
+    device: torch.device | str | None = None,
 ):
     model_cfg = dict(
         **config.arch.__pydantic_extra__,  # type: ignore
@@ -120,10 +129,12 @@ def create_model(
     model_cls = load_model_class(config.arch.name)
     loss_head_cls = load_model_class(config.arch.loss.name)
 
-    with torch.device("cuda"):
+    device = torch.device("cuda" if device is None else device)
+
+    with torch.device(device):
         model: nn.Module = model_cls(model_cfg)
         model = loss_head_cls(model, **config.arch.loss.__pydantic_extra__)  # type: ignore
-        if "DISABLE_COMPILE" not in os.environ:
+        if device.type == "cuda" and "DISABLE_COMPILE" not in os.environ:
             model = torch.compile(model, dynamic=False)  # type: ignore
 
         # Broadcast parameters from rank 0
@@ -142,7 +153,7 @@ def create_model(
         ),
         AdamATan2(
             model.parameters(),
-            lr=0,  # Needs to be set by scheduler
+            lr=0.0001,  # Needs to be set by scheduler
             weight_decay=config.weight_decay,
             betas=(config.beta1, config.beta2),
         ),
@@ -179,7 +190,11 @@ def cosine_schedule_with_warmup_lr_lambda(
 
 
 def init_train_state(
-    config: PretrainConfig, train_metadata: PuzzleDatasetMetadata, world_size: int
+    config: PretrainConfig,
+    train_metadata: PuzzleDatasetMetadata,
+    world_size: int,
+    *,
+    device: torch.device | str | None = None,
 ):
     # Estimated total training steps
     total_steps = int(
@@ -191,7 +206,7 @@ def init_train_state(
 
     # Model
     model, optimizers, optimizer_lrs = create_model(
-        config, train_metadata, world_size=world_size
+        config, train_metadata, world_size=world_size, device=device
     )
 
     return TrainState(
