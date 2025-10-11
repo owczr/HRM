@@ -21,7 +21,10 @@ def _select_device(device: Optional[str]) -> torch.device:
     if torch.cuda.is_available():
         return torch.device("cuda")
 
-    if getattr(torch.backends, "mps", None) is not None and torch.backends.mps.is_available():
+    if (
+        getattr(torch.backends, "mps", None) is not None
+        and torch.backends.mps.is_available()
+    ):
         return torch.device("mps")
 
     return torch.device("cpu")
@@ -112,11 +115,12 @@ class InferenceRequest(BaseModel):
     input_array: Union[List[int], List[List[int]]]
     puzzle_identifier: int = 0
     return_keys: Optional[List[str]] = None
+    only_predictions: bool = True
 
 
 class InferenceResponse(BaseModel):
-    outputs: Dict[str, Dict[str, Any]]
     predictions: Optional[List[int]]
+    outputs: Dict[str, Dict[str, Any]] | None = None
 
 
 def create_app(service: InferenceService) -> FastAPI:
@@ -151,6 +155,8 @@ def create_app(service: InferenceService) -> FastAPI:
             predicted_tokens = np.argmax(outputs["logits"][0], axis=-1)
             predictions = predicted_tokens.tolist()
 
+        if request.only_predictions:
+            return InferenceResponse(outputs=None, predictions=predictions)
         return InferenceResponse(outputs=formatted_outputs, predictions=predictions)
 
     return app
@@ -160,9 +166,13 @@ def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Run a FastAPI server for HRM inference.",
     )
-    parser.add_argument("--checkpoint", required=True, help="Path to the model checkpoint.")
+    parser.add_argument(
+        "--checkpoint", required=True, help="Path to the model checkpoint."
+    )
     parser.add_argument("--host", default="0.0.0.0", help="Host interface to bind to.")
-    parser.add_argument("--port", type=int, default=8000, help="Port to bind the server to.")
+    parser.add_argument(
+        "--port", type=int, default=8000, help="Port to bind the server to."
+    )
     parser.add_argument(
         "--device",
         default=None,
@@ -188,4 +198,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
