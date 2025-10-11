@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import contextlib
 from dataclasses import dataclass
-from typing import Dict, Iterable, List, Optional, Union
+from typing import Any, Dict, Iterable, List, Optional, Union
 
 import numpy as np
 import requests
@@ -18,13 +18,14 @@ class InferenceResult:
     predictions: Optional[List[int]]
 
     @classmethod
-    def from_response(cls, data: Dict[str, object]) -> "InferenceResult":
-        raw_outputs = data.get("outputs", {})
+    def from_response(cls, data: Dict[str, Dict[str, Any]]) -> "InferenceResult":
+        raw_outputs = data.get("outputs")
         parsed_outputs: Dict[str, np.ndarray] = {}
 
-        for key, payload in raw_outputs.items():
-            values = payload.get("values", []) if isinstance(payload, dict) else []
-            parsed_outputs[key] = np.asarray(values)
+        if raw_outputs is not None:
+            for key, payload in raw_outputs.items():
+                values = payload.get("values", []) if isinstance(payload, dict) else []
+                parsed_outputs[key] = np.asarray(values)
 
         predictions = data.get("predictions")
         if predictions is not None and not isinstance(predictions, list):
