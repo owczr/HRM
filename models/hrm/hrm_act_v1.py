@@ -1,21 +1,22 @@
-from typing import Tuple, List, Dict, Optional
-from dataclasses import dataclass
 import math
+import os
+from dataclasses import dataclass
+from typing import Dict, List, Tuple
 
 import torch
 import torch.nn.functional as F
-from torch import nn
 from pydantic import BaseModel
+from torch import nn
 
 from models.common import trunc_normal_init_
 from models.layers import (
-    rms_norm,
-    SwiGLU,
     Attention,
-    RotaryEmbedding,
-    CosSin,
     CastedEmbedding,
     CastedLinear,
+    CosSin,
+    RotaryEmbedding,
+    SwiGLU,
+    rms_norm,
 )
 from models.sparse_embedding import CastedSparseEmbedding
 
@@ -62,7 +63,7 @@ class HierarchicalReasoningModel_ACTV1Config(BaseModel):
     halt_max_steps: int
     halt_exploration_prob: float
 
-    forward_dtype: str = "bfloat16"
+    forward_dtype: str = "float16" if os.getenv("DEVICE") == "mps" else "bfloat16"
 
 
 class HierarchicalReasoningModel_ACTV1Block(nn.Module):
