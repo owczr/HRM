@@ -10,6 +10,7 @@ import tokenizers
 from argdantic import ArgParser
 from common import PuzzleDatasetMetadata
 from pydantic import BaseModel
+from typing import Optional
 from sklearn.model_selection import train_test_split
 from tokenizers.models import WordLevel
 from tokenizers.pre_tokenizers import Split
@@ -26,6 +27,7 @@ class DataProcessConfig(BaseModel):
     input_dir: str = "data"
     input_file: str = "data/questbench_data/GSM-Q/gsm_CSP_full.csv"
     output_dir: str = "data/questbench-gsm"
+    tokenizer_path: Optional[str] = None
 
 
 def download_dataset(download_dir, dataset_url):
@@ -100,6 +102,18 @@ def get_tokenizer():
     trainer = WordLevelTrainer(min_frequency=1, special_tokens=SPECIAL_TOKENS)
 
     return tokenizer, trainer
+
+
+def load_tokenizer_from_path(tokenizer_path: str) -> tokenizers.Tokenizer:
+    if not os.path.exists(tokenizer_path):
+        raise FileNotFoundError(f"Tokenizer file not found at {tokenizer_path}")
+
+    tokenizer = tokenizers.Tokenizer.from_file(tokenizer_path)
+    if hasattr(tokenizer, "no_padding"):
+        tokenizer.no_padding()
+    if hasattr(tokenizer, "no_truncation"):
+        tokenizer.no_truncation()
+    return tokenizer
 
 
 def get_training_data(df):
@@ -234,13 +248,21 @@ def main(config):
         return
 
     try:
-        vocab, vocab_size = get_vocabulary(df)
-        tokenizer, trainer = get_tokenizer()
-        data = get_training_data(df)
-        tokenizer = train_tokenizer(tokenizer, trainer, data)
+        if config.tokenizer_path:
+            tokenizer = load_tokenizer_from_path(config.tokenizer_path)
+        else:
+            get_vocabulary(df)
+            tokenizer, trainer = get_tokenizer()
+            data = get_training_data(df)
+            tokenizer = train_tokenizer(tokenizer, trainer, data)
+        vocab_size = tokenizer.get_vocab_size()
 
         # Get the max length for consistent tensor shapes
         problems_processed_list = add_special_tokens(df)
+        if hasattr(tokenizer, "no_padding"):
+            tokenizer.no_padding()
+        if hasattr(tokenizer, "no_truncation"):
+            tokenizer.no_truncation()
         temp_encoded = tokenizer.encode_batch(problems_processed_list)
         max_length = max(len(enc.ids) for enc in temp_encoded)
         max_length = min(max_length, 512)  # Cap at 512 tokens to avoid memory issues
@@ -259,6 +281,7 @@ def main(config):
         tokenizer.enable_padding(
             length=max_length, pad_token="[PAD]", pad_id=tokenizer.token_to_id("[PAD]")
         )
+        tokenizer.enable_truncation(max_length=max_length)
 
         # Re-encode with padding enabled
         problems_encoded = tokenizer.encode_batch(problems_processed_list)
