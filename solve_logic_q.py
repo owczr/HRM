@@ -25,7 +25,6 @@ import ast
 import csv
 from typing import Dict, List, Sequence, Tuple
 
-
 Literal = Tuple[str, bool]
 Clause = Tuple[Literal, ...]
 
@@ -234,8 +233,10 @@ def _predict_questions(
     base_clauses = _build_base_clauses(rules, facts, untrue_facts)
     variables = _collect_variables(rules, facts, untrue_facts)
     known = {var for var, value in (_literal_from_fact(f, True) for f in facts)}
-    known.update(var for var, value in (_literal_from_fact(f, False) for f in untrue_facts))
-    forbidden = { _parse_literal(item)[0] for item in cannot_ask }
+    known.update(
+        var for var, value in (_literal_from_fact(f, False) for f in untrue_facts)
+    )
+    forbidden = {_parse_literal(item)[0] for item in cannot_ask}
 
     goal_literal = (goal, True)
     neg_goal_literal = (goal, False)
@@ -257,8 +258,12 @@ def _predict_questions(
                 goal_results[value] = None
                 continue
 
-            must_be_true = not _is_satisfiable(base_clauses, assumptions + [neg_goal_literal])
-            must_be_false = not _is_satisfiable(base_clauses, assumptions + [goal_literal])
+            must_be_true = not _is_satisfiable(
+                base_clauses, assumptions + [neg_goal_literal]
+            )
+            must_be_false = not _is_satisfiable(
+                base_clauses, assumptions + [goal_literal]
+            )
 
             if must_be_true and must_be_false:
                 # Inconsistent, treat as undetermined
