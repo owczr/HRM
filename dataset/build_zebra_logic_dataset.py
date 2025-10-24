@@ -2,6 +2,7 @@ import ast
 import json
 import os
 import traceback
+from datetime import datetime
 from typing import Optional
 
 import numpy as np
@@ -13,6 +14,8 @@ from sklearn.model_selection import train_test_split
 from tokenizers.models import WordLevel
 from tokenizers.pre_tokenizers import Whitespace
 from tokenizers.trainers import WordLevelTrainer
+
+from .common import PuzzleDatasetMetadata
 
 SPECIAL_TOKENS = [
     "[PAD]",
@@ -41,12 +44,59 @@ class DataProcessConfig(BaseModel):
 
 def read_data(
     config,
-) -> tuple[pd.Series, pd.Series]:
+) -> pd.DataFrame:
     df = pd.read_parquet(config.dataset_url)
-    puzzles = df["puzzle"]
-    answers = df["solution"]
+    return df
 
-    return puzzles, answers
+
+def augment_data(df: pd.DataFrame) -> pd.DataFrame:
+    augmented_df = pd.DataFrame()
+
+    for _, row in df.iterrows():
+        names = np.vstack(row["solution"]["rows"])[:, 1]
+
+        sequences = []
+        for i in range(len(names)):
+            for j in range(i + 1, len(names) + 1):
+                sequences.append(names[i:j])
+
+        puzzle = row["puzzle"]
+        updated_puzzles = [puzzle + f"\n## Query\n{name_seq}" for name_seq in sequences]
+
+        solution = row["solution"]
+        rows = solution["rows"]
+
+        rows_stacked = np.vstack(rows)
+        updated_rows = [
+            rows_stacked[np.isin(rows_stacked[:, 1], name_seq)]
+            for name_seq in sequences
+        ]
+        updated_solutions = [
+            {"header": solution["header"], "rows": row} for row in updated_rows
+        ]
+
+        updated_ids = [
+            row["id"] + f"-{len(name_seq)}-{idx}"
+            for idx, name_seq in enumerate(sequences)
+        ]
+
+        updated_sizes = [row["size"] + f"*{len(name_seq)}" for name_seq in sequences]
+
+        now = datetime.now()
+
+        augmented_row = pd.DataFrame(
+            {
+                "id": updated_ids,
+                "size": updated_sizes,
+                "puzzle": updated_puzzles,
+                "solution": updated_solutions,
+                "created_at": now.strftime("%Y-%m-%dT%H:%M:%S.%f"),
+            }
+        )
+
+        augmented_df = pd.concat([augmented_df, augmented_row])
+
+    return augmented_df
 
 
 def get_tokenizer():
@@ -207,24 +257,38 @@ def save(X, y, problems_processed, tokenizer, vocab_size, name, config):
         "puzzle_identifiers": np.zeros(num_samples, dtype=np.int32),
     }
 
-    metadata = {
-        "pad_id": tokenizer.token_to_id("[PAD]"),
-        "ignore_label_id": tokenizer.token_to_id("[PAD]"),
-        "blank_identifier_id": tokenizer.token_to_id("[PAD]"),
-        "vocab_size": vocab_size,
-        "seq_len": results["inputs"].shape[1],
-        "num_puzzle_identifiers": 1,
-        "total_groups": num_samples,
-        "mean_puzzle_examples": 1.0,
-        "sets": ["all"],
-    }
-
+    # metadata = PuzzleDatasetMetadata(
+    #     seq_len=81,
+    #     vocab_size=10 + 1,  # PAD + "0" ... "9"
+    #     pad_id=0,
+    #     ignore_label_id=0,
+    #     blank_identifier_id=0,
+    #     num_puzzle_identifiers=1,
+    #     total_groups=len(results["group_indices"]) - 1,
+    #     mean_puzzle_examples=1,
+    #     total_puzzles=len(results["group_indices"]) - 1,
+    #     sets=["all"]
+    # )
+    metadata = PuzzleDatasetMetadata(
+        **{
+            "pad_id": tokenizer.token_to_id("[PAD]"),
+            "ignore_label_id": tokenizer.token_to_id("[PAD]"),
+            "blank_identifier_id": tokenizer.token_to_id("[PAD]"),
+            "vocab_size": vocab_size,
+            "seq_len": results["inputs"].shape[1],
+            "num_puzzle_identifiers": 1,
+            "total_groups": num_samples,
+            "total_puzzles": num_samples,
+            "mean_puzzle_examples": 1.0,
+            "sets": ["all"],
+        }
+    )
     # Save metadata as JSON.
     save_dir = os.path.join(config.output_dir, name)
     os.makedirs(save_dir, exist_ok=True)
 
     with open(os.path.join(save_dir, "dataset.json"), "w") as f:
-        json.dump(metadata, f)
+        json.dump(metadata.model_dump(), f)
 
     # Save data
     for k, v in results.items():
@@ -237,7 +301,10 @@ def save(X, y, problems_processed, tokenizer, vocab_size, name, config):
 
 def main(config):
     try:
-        puzzles, answers = read_data(config)
+        df = read_data(config)
+        df_aug = augment_data(df)
+        puzzles = df_aug["puzzle"]
+        answers = df_aug["solution"]
     except Exception as e:
         print(f"Error reading data: {e}")
         return
