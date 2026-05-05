@@ -1,0 +1,1151 @@
+gt_qs
+"['different', 'frightened', 'hurt', ['shiny', 'unpleasant']]"
+"['clumsy', 'different', 'frantic', 'homely', 'outrageous', 'spotless', 'thoughtless', 'tired', ['attentive', 'embarrassed'], ['attentive', 'unpleasant'], ['difficult', 'nervous'], ['difficult', 'shy'], ['nervous', 'precious'], ['precious', 'shy']]"
+"['loving', 'nervous']"
+"['loving', 'nervous']"
+"['attentive', 'clumsy', 'different', 'frantic', 'homely', 'loving', 'nervous', 'shy', 'tired']"
+"['clumsy', 'different', 'difficult', 'frantic', 'homely', 'outrageous', 'precious', 'spotless', 'thoughtless', 'tired', ['attentive', 'embarrassed'], ['attentive', 'unpleasant']]"
+"['clumsy', 'difficult', 'tired', 'unpleasant']"
+"['clumsy', 'different', 'frantic', 'homely', 'nervous', 'shy', 'tired', ['attentive', 'embarrassed'], ['attentive', 'outrageous'], ['attentive', 'spotless'], ['attentive', 'thoughtless'], ['attentive', 'unpleasant'], ['loving', 'outrageous'], ['loving', 'spotless'], ['loving', 'thoughtless']]"
+"['attentive', 'clumsy', 'different', 'frantic', 'homely', 'loving', 'nervous', 'shy', 'tired']"
+"['long', 'naughty', 'polite', 'troubled', 'worrisome', ['distinct', 'vivacious']]"
+"['distinct', 'horrible', 'long', 'naughty', 'polite', 'tired']"
+"['combative', 'courageous', 'horrible', 'impatient', 'long', 'naughty', 'polite', 'worrisome', 'zealous', ['confident', 'tired'], ['distinct', 'vivacious'], ['troubled', 'vivacious'], ['tired', 'troubled', 'victorious']]"
+"['naughty', 'polite']"
+"['combative', 'confident', 'courageous', 'horrible', 'impatient', 'long', 'naughty', 'polite', 'worrisome', 'zealous', ['distinct', 'vivacious'], ['troubled', 'victorious'], ['troubled', 'vivacious']]"
+"['horrible', 'polite']"
+"['naughty', 'polite', 'vivacious', ['troubled', 'victorious']]"
+"['combative', 'courageous', 'horrible', 'impatient', 'long', 'naughty', 'polite', 'tired', 'worrisome', 'zealous', ['distinct', 'vivacious'], ['troubled', 'vivacious']]"
+"['long', 'naughty', 'polite', 'victorious', 'vivacious', 'worrisome']"
+"['long', 'naughty', 'polite', 'vivacious']"
+"['combative', 'courageous', 'distinct', 'horrible', 'impatient', 'long', 'naughty', 'polite', 'troubled', 'worrisome', 'zealous', ['confident', 'tired']]"
+['anxious']
+"['anxious', 'fancy', 'spotless', 'straightforward', 'talented', 'tense', 'tired', 'troubled', 'wandering']"
+['troubled']
+['anxious']
+['anxious']
+"['anxious', 'beautiful', 'fancy', 'light', 'spotless', 'straightforward', 'talented', 'tense', 'tired', 'troubled', 'wandering']"
+['anxious']
+['anxious']
+"['spotless', 'talented', 'troubled']"
+['anxious']
+"['anxious', 'spotless', 'talented', 'troubled']"
+['difficult']
+['difficult']
+"['courageous', 'difficult']"
+['difficult']
+['difficult']
+['difficult']
+"['courageous', 'difficult']"
+['difficult']
+"['bossy', 'precious', 'serious', 'stubborn']"
+"['naughty', 'tame']"
+"['adorable', 'naughty', 'tame']"
+"['different', 'naughty', 'tame', 'thoughtful']"
+"['adorable', 'naughty', 'tame']"
+"['beautiful', 'crowded', 'gifted', 'lucky', 'wandering']"
+"['beautiful', 'crowded', 'gifted', 'lucky', 'wandering']"
+"['beautiful', 'crowded', 'gifted', 'lucky', 'wandering']"
+"['beautiful', 'crowded', 'gifted', 'lucky', 'wandering']"
+"['crowded', 'frantic']"
+['crowded']
+"['crowded', ['fine', 'frantic']]"
+"['busy', 'crowded', ['fine', 'frantic']]"
+"['crowded', 'fine']"
+['talented']
+"['bored', 'disgusted', 'lucky', 'messy', 'nervous', 'witty']"
+"['bored', 'careless', 'clumsy', 'lonely', 'lucky', 'nervous', 'witty']"
+"['bored', 'careless', 'lucky', 'nervous', 'witty', ['clumsy', 'disgusted'], ['disgusted', 'lonely']]"
+"['bored', 'careless', 'disgusted', 'lucky', 'nervous', 'witty']"
+"['enchanting', 'long']"
+"['comfortable', 'enchanting', 'fancy', 'friendly', 'long', 'thoughtless']"
+"['comfortable', 'enchanting', 'fancy', 'friendly', 'long', 'thoughtless']"
+['talented']
+"['calm', 'gleaming', 'grumpy', 'helpless', 'tame']"
+"['calm', 'dishonest', 'frantic', 'gleaming', 'grumpy', 'mysterious', ['agreeable', 'helpless'], ['helpless', 'nervous'], ['helpless', 'popular'], ['popular', 'tame']]"
+"['amused', 'excited', 'mysterious', 'popular', 'quaint', 'worried']"
+"['gleaming', 'grumpy', ['agreeable', 'helpless'], ['helpless', 'nervous'], ['helpless', 'popular'], ['popular', 'tame']]"
+"['gleaming', 'grumpy', 'popular', ['agreeable', 'helpless'], ['helpless', 'nervous']]"
+"['calm', 'dishonest', 'enchanting', 'excited', 'frantic', 'gleaming', 'helpless', 'mysterious', 'nervous', 'popular', 'quaint', 'worried']"
+"['calm', 'dishonest', 'gleaming', 'grumpy', 'helpless', ['popular', 'tame']]"
+['grumpy']
+"['calm', 'dishonest', 'enchanting', 'excited', 'frantic', 'gleaming', 'mysterious', 'nervous', 'popular', 'worried', ['agreeable', 'helpless'], ['helpless', 'reserved'], ['helpless', 'tidy']]"
+"['ambitious', 'attentive', 'helpless', 'lucky', 'outstanding', 'ugliest', 'wandering', 'worried', ['condemned', 'unpleasant']]"
+"['adorable', 'attentive', 'condemned', 'reserved', 'worried']"
+"['adorable', 'attentive', 'condemned', 'worried']"
+"['attentive', 'condemned']"
+"['adorable', 'attentive', 'condemned', 'worried']"
+"['crowded', 'sleepy', 'weary']"
+"['crowded', 'sleepy', 'weary']"
+"['crowded', 'sleepy', 'weary']"
+"['crowded', 'sleepy', 'weary']"
+"['crowded', 'sleepy', 'weary']"
+"['crowded', 'sleepy', 'weary']"
+"['blushing', 'bored', 'crowded', 'good', 'mean', 'rude', 'straightforward', 'talented']"
+"['crowded', 'mean', 'rude']"
+"['crowded', 'mean', 'rude']"
+"['alert', 'attractive', 'beautiful', 'cruel', 'embarrassed', 'messy', 'nervous', 'sleepy', 'tender', 'versatile', ['agreeable', 'talented'], ['old-fashioned', 'talented']]"
+"['agreeable', 'alert', 'attractive', 'beautiful', 'cruel', 'embarrassed', 'messy', 'old-fashioned', 'sleepy', 'tender', 'versatile']"
+"['attractive', 'embarrassed', 'messy', 'sleepy', 'tender', 'versatile', ['agreeable', 'talented'], ['old-fashioned', 'talented']]"
+"['embarrassed', 'talented']"
+"['embarrassed', 'frail', 'loving', 'rude', 'smart', ['glamorous', 'perfect']]"
+"['frail', 'loving', 'rude']"
+"['disobedient', 'embarrassed', 'glamorous', 'rude', 'smart']"
+"['frail', 'loving', 'perfect', 'rude']"
+"['bright', 'disobedient', 'embarrassed', 'frail', 'loving', 'perfect', 'rude']"
+"['embarrassed', 'frail', 'loving', 'perfect', 'rude']"
+"['disobedient', 'embarrassed', 'glamorous', 'rude', 'smart']"
+"['embarrassed', 'rude', 'smart', ['disobedient', 'frail'], ['disobedient', 'loving'], ['frail', 'glamorous'], ['glamorous', 'loving'], ['glamorous', 'perfect']]"
+"['embarrassed', 'glamorous', 'rude', 'smart', ['disobedient', 'frail'], ['disobedient', 'loving']]"
+"['frail', 'loving', 'rude', ['glamorous', 'perfect']]"
+['charming']
+"['charming', 'tender', 'thoughtless']"
+"['charming', 'weary']"
+['tender']
+"['charming', 'tender', 'thoughtless']"
+"['charming', 'hilarious', 'messy', 'thoughtless', 'zealous', ['homely', 'tender'], ['tender', 'vivacious']]"
+"['charming', 'messy', 'tender', 'thoughtless']"
+['weary']
+"['aggressive', 'blushing', 'hilarious', 'weary']"
+"['charming', 'thoughtless']"
+['aggressive']
+"['charming', 'stormy', 'weary', 'zealous']"
+['weary']
+"['charming', 'messy', 'thoughtless']"
+['gorgeous']
+"['pessimistic', 'tired', 'weary', ['excited', 'ugly']]"
+"['famous', 'pessimistic']"
+"['cruel', 'talented']"
+"['cruel', 'talented']"
+"['talkative', 'ugly']"
+"['bossy', 'gorgeous', 'homely', 'rational', 'zealous', ['impartial', 'proud'], ['naughty', 'shiny']]"
+"['bossy', 'gleaming', 'gorgeous', 'homely', 'naughty', 'rational', 'zealous', ['calm', 'thoughtful'], ['impartial', 'proud'], ['proud', 'thoughtful']]"
+"['bossy', 'homely', 'perfect', 'proud', 'rational']"
+"['gleaming', 'gorgeous', 'homely', 'naughty', 'rational']"
+"['agreeable', 'alert', 'anxious', 'condemned', 'difficult', 'frightened', 'gleaming', 'gorgeous', 'helpless', 'homely', 'mean', 'proud', 'zealous', ['calm', 'rational'], ['grumpy', 'perfect'], ['grumpy', 'rational'], ['outrageous', 'perfect'], ['outrageous', 'powerful'], ['outrageous', 'rational']]"
+"['agreeable', 'frightened', 'helpless', 'homely', 'perfect', 'powerful', 'rational', 'zealous']"
+"['bossy', 'gleaming', 'gorgeous', 'homely', 'proud', 'rational', 'zealous', ['calm', 'thoughtful']]"
+"['agreeable', 'helpless', 'homely', 'impartial', 'perfect', 'thoughtful', ['calm', 'rational'], ['frightened', 'powerful'], ['frightened', 'rational']]"
+"['agreeable', 'alert', 'anxious', 'condemned', 'difficult', 'frightened', 'gleaming', 'gorgeous', 'helpless', 'homely', 'mean', 'rational', 'zealous', ['grumpy', 'perfect'], ['outrageous', 'perfect'], ['bossy', 'outrageous', 'powerful'], ['crowded', 'outrageous', 'powerful']]"
+"['agreeable', 'alert', 'anxious', 'condemned', 'difficult', 'gleaming', 'gorgeous', 'helpless', 'homely', 'mean', 'zealous', ['bossy', 'frightened'], ['bossy', 'outrageous'], ['bossy', 'proud'], ['calm', 'rational'], ['crowded', 'frightened'], ['crowded', 'outrageous'], ['crowded', 'proud'], ['frightened', 'impartial'], ['frightened', 'perfect'], ['frightened', 'proud'], ['frightened', 'rational'], ['frightened', 'thoughtful'], ['grumpy', 'perfect'], ['impartial', 'proud'], ['outrageous', 'perfect'], ['perfect', 'proud'], ['proud', 'thoughtful'], ['bossy', 'grumpy', 'rational'], ['crowded', 'grumpy', 'rational']]"
+"['bossy', 'calm', 'gleaming', 'gorgeous', 'homely', 'naughty', 'rational', 'zealous']"
+"['frightened', 'homely', 'outrageous', 'zealous', ['calm', 'rational'], ['grumpy', 'perfect'], ['grumpy', 'rational']]"
+"['bossy', 'homely', 'proud', 'rational', 'thoughtful', 'zealous', ['naughty', 'shiny']]"
+"['bossy', 'frightened', 'gleaming', 'gorgeous', 'perfect', ['calm', 'rational']]"
+['rational']
+"['ambitious', 'confident', 'plain', 'thoughtless']"
+['rational']
+"['clumsy', 'exuberant', 'light']"
+"['clumsy', 'exuberant', 'light']"
+"['ambitious', 'confident', 'plain', 'thoughtless']"
+"['ambitious', 'confident', 'plain', 'thoughtless']"
+['rational']
+"['ambitious', 'confident', 'plain', 'thoughtless']"
+"['clumsy', 'exuberant']"
+"['clumsy', 'exuberant', 'light']"
+"['ambitious', 'confident', 'plain', 'thoughtless']"
+"['clumsy', 'exuberant']"
+['rational']
+"['clumsy', 'exuberant']"
+"['clumsy', 'exuberant', 'light']"
+['rational']
+"['clumsy', 'exuberant']"
+"['busy', 'gorgeous', 'hurt', 'scared', 'ugliest']"
+"['foolish', 'pleasant', 'supportive']"
+['gorgeous']
+['reserved']
+"['clean', 'enchanting', 'horrible', 'innocent']"
+"['mysterious', 'precious']"
+"['agreeable', 'clean', 'clumsy', 'confident', 'enchanting', 'helpless', 'horrible', ['innocent', 'reserved']]"
+"['clean', 'enchanting', 'horrible', ['innocent', 'reserved']]"
+"['horrible', ['fearless', 'quaint']]"
+"['horrible', 'quaint']"
+"['crowded', 'easy', 'grumpy', 'powerful', 'thoughtless']"
+"['easy', 'grumpy', 'powerful', 'thoughtless', ['amused', 'bright'], ['amused', 'crowded'], ['amused', 'enchanting'], ['beautiful', 'crowded'], ['bright', 'crowded'], ['bright', 'jittery'], ['crowded', 'jittery'], ['enchanting', 'jittery']]"
+"['crowded', 'easy', 'thoughtless', ['amused', 'bright'], ['amused', 'enchanting'], ['bright', 'jittery'], ['enchanting', 'jittery']]"
+"['amused', 'jittery']"
+"['crowded', 'easy', 'thoughtless']"
+"['amused', 'beautiful', 'bright', 'easy', 'jittery', 'thoughtless']"
+"['bright', 'crowded', 'easy', 'enchanting', 'thoughtless']"
+"['bright', 'crowded', 'easy', 'enchanting', 'thoughtless']"
+['jittery']
+"['jittery', 'smart', 'worried']"
+['jittery']
+"['smart', 'worried']"
+"['jittery', 'smart']"
+"['smart', 'worried']"
+['powerful']
+"['frantic', 'gorgeous', 'impatient']"
+"['busy', 'powerful']"
+"['calm', 'frantic', 'impatient']"
+['powerful']
+"['busy', 'frantic', 'impatient', 'silly', ['calm', 'gorgeous'], ['calm', 'powerful']]"
+"['calm', 'frantic', 'impatient']"
+['average']
+"['attentive', 'average', 'confident', 'modern', ['clean', 'foolish']]"
+['average']
+"['clean', 'modern']"
+"['clean', 'modern']"
+"['average', 'clean']"
+['average']
+['average']
+"['attentive', 'average', 'confident', 'foolish', 'modern']"
+['average']
+"['attentive', 'average', 'confident', 'modern', 'nervous', 'popular', 'tense', ['clean', 'foolish']]"
+"['clumsy', 'disgusted', 'good']"
+"['disgusted', 'good', 'hilarious', 'perfect', ['bright', 'clumsy'], ['clumsy', 'different'], ['clumsy', 'rational']]"
+"['clumsy', 'disgusted', 'good']"
+"['clumsy', 'disgusted', 'good', 'perfect']"
+"['clumsy', 'disgusted', 'good']"
+"['clumsy', 'disgusted', 'good']"
+"['clumsy', 'disgusted']"
+"['clumsy', 'disgusted']"
+"['bright', 'different', 'disgusted', 'good', 'hilarious', 'perfect', 'rational']"
+"['bossy', 'elated', 'gorgeous', 'messy', 'shiny', 'weary']"
+"['agreeable', 'elated', 'gorgeous', 'popular']"
+"['bossy', 'elated', 'gorgeous', 'messy', 'shiny', 'weary']"
+['attentive']
+"['agreeable', 'gorgeous', 'popular']"
+"['agreeable', 'bossy', 'elated', 'gorgeous', 'popular', 'shiny', 'weary']"
+"['attentive', 'fearless', 'helpless', 'nervous', 'stubborn', 'talkative', 'vivacious']"
+"['helpless', 'unpleasant']"
+"['attentive', 'fearless', 'nervous', 'stubborn', 'talkative', 'vivacious', ['amused', 'helpless']]"
+"['attentive', 'helpless', 'stubborn']"
+"['attentive', 'helpless', 'stubborn']"
+"['amused', 'fearless', 'nervous', 'talkative', 'vivacious']"
+"['helpless', 'stubborn']"
+"['amused', 'fearless', 'nervous', 'talkative', 'vivacious']"
+"['attentive', 'fearless', 'nervous', 'stubborn', 'talkative', 'vivacious', ['amused', 'helpless']]"
+"['attentive', 'helpless', 'stubborn']"
+"['helpless', 'stubborn', ['amused', 'attentive'], ['attentive', 'confused']]"
+"['helpless', 'stubborn']"
+"['fearless', 'helpless', 'hilarious', 'nervous', 'talkative', 'vivacious']"
+"['helpless', 'unpleasant', 'worried']"
+"['helpless', 'stubborn']"
+"['helpless', 'stubborn', ['amused', 'attentive'], ['attentive', 'confused']]"
+"['helpless', 'stubborn']"
+"['mean', 'talented']"
+"['confused', 'mean', 'talented']"
+"['comfortable', 'joyous', 'nervous']"
+"['confused', 'reserved', 'talented']"
+"['comfortable', 'confused', 'joyous', 'nervous', 'reserved', 'talented', ['anxious', 'enchanting'], ['enchanting', 'tidy'], ['enchanting', 'ugliest'], ['enchanting', 'worrisome']]"
+"['confused', 'mean', 'talented', 'ugliest', 'weary']"
+"['reserved', 'worried']"
+"['cute', 'elegant', 'powerful', 'proud', 'spotless']"
+"['proud', 'worried']"
+"['courageous', 'unpleasant', 'worried']"
+"['proud', 'unpleasant', 'worried']"
+"['powerful', 'reserved', 'spotless', 'worried']"
+['spotless']
+['stubborn']
+"['powerful', 'spotless', 'worried']"
+"['reserved', 'unpleasant']"
+"['powerful', 'spotless', 'worried']"
+"['proud', 'worried']"
+"['reserved', 'worried']"
+"['powerful', 'reserved', 'spotless', 'worried']"
+"['bored', 'homely', 'horrible']"
+"['comfortable', 'fine', 'fragile', 'homely', 'quaint', 'straightforward']"
+['attractive']
+['condemned']
+['condemned']
+['attractive']
+"['bright', 'disgusted', 'homely', 'sincere', 'smart']"
+"['disgusted', 'friendly', 'homely', 'innocent', 'sincere', ['glamorous', 'smart'], ['smart', 'tidy']]"
+"['homely', 'sincere', 'smart']"
+"['bright', 'disgusted', 'friendly', 'glamorous', 'homely', 'innocent', 'sincere', ['smart', 'tidy']]"
+"['homely', 'sincere', 'smart']"
+"['bright', 'disgusted', 'homely', 'sincere', 'tidy']"
+"['glamorous', 'homely', 'sincere', 'tidy']"
+['curious']
+"['naughty', 'talented']"
+"['hypocritical', 'polite']"
+['curious']
+"['naughty', 'talented']"
+['curious']
+"['hypocritical', 'polite']"
+"['hypocritical', 'polite']"
+"['anxious', 'shiny', 'wide-eyed', ['ambitious', 'glamorous'], ['ambitious', 'old-fashioned']]"
+"['ambitious', 'careless', 'shiny', 'tidy']"
+"['glamorous', 'old-fashioned', 'shiny', 'wide-eyed']"
+"['shiny', 'tidy', 'wide-eyed', ['ambitious', 'glamorous'], ['ambitious', 'old-fashioned'], ['anxious', 'distinct'], ['anxious', 'glamorous'], ['anxious', 'gleaming'], ['anxious', 'loving'], ['anxious', 'old-fashioned'], ['anxious', 'talkative']]"
+"['anxious', 'shiny', 'wide-eyed', ['ambitious', 'glamorous'], ['ambitious', 'old-fashioned']]"
+"['careless', 'curious', 'shiny', 'wide-eyed']"
+"['careless', 'gleaming', 'shiny', 'talkative', 'versatile', 'wide-eyed', ['ambitious', 'old-fashioned'], ['curious', 'old-fashioned']]"
+['combative']
+['combative']
+['combative']
+['combative']
+['combative']
+['combative']
+['combative']
+"['different', 'fragile', 'outrageous', 'uptight']"
+"['bad-tempered', 'grumpy', 'powerful', 'straightforward']"
+"['bad-tempered', 'fearless', 'powerful', 'spotless']"
+"['naughty', 'tidy']"
+"['aggressive', 'gifted', 'naughty', 'stormy', ['enchanting', 'serious'], ['serious', 'sincere']]"
+"['naughty', 'tidy']"
+"['aggressive', 'enchanting', 'stormy', 'worried']"
+"['aggressive', 'enchanting', 'naughty']"
+"['bright', 'enchanting', 'sensible', 'stormy', ['aggressive', 'agreeable'], ['aggressive', 'ambitious'], ['agreeable', 'gifted', 'long'], ['agreeable', 'gifted', 'witty'], ['ambitious', 'gifted', 'long'], ['ambitious', 'gifted', 'witty']]"
+"['enchanting', 'naughty', 'stormy', ['agreeable', 'tidy'], ['ambitious', 'tidy'], ['confident', 'tidy'], ['fearless', 'tidy']]"
+"['naughty', 'tidy']"
+"['enchanting', 'stormy', ['aggressive', 'agreeable'], ['aggressive', 'ambitious'], ['agreeable', 'gifted'], ['ambitious', 'gifted']]"
+"['aggressive', 'gifted', 'naughty', 'stormy', ['enchanting', 'serious'], ['bright', 'serious', 'sincere'], ['sensible', 'serious', 'sincere']]"
+['sincere']
+"['aggressive', 'enchanting', 'gifted', 'naughty']"
+"['excited', 'quaint', 'talented']"
+"['excited', 'foolish', 'quaint', 'talented', 'wrong']"
+['foolish']
+"['different', 'dull', 'grumpy', 'naughty', 'shy']"
+"['different', 'dull', 'grumpy', 'naughty']"
+"['different', 'grumpy']"
+"['different', 'dull', 'grumpy', 'naughty']"
+"['ambitious', 'helpful', 'loving', ['blushing', 'silly']]"
+"['broad-minded', 'silly']"
+"['ambitious', 'helpful', 'reserved', 'rude', 'silly', ['broad-minded', 'dishonest'], ['dishonest', 'grumpy']]"
+"['reserved', 'smart', 'straightforward', 'victorious', 'vivacious', 'weary']"
+"['muddy', 'proud', 'smart', 'straightforward', 'vivacious', 'weary', ['ambitious', 'silly'], ['blushing', 'silly'], ['helpful', 'silly'], ['loving', 'silly']]"
+"['ambitious', 'different', 'exuberant', 'powerful']"
+"['reserved', 'rude', 'victorious']"
+"['broad-minded', 'silly']"
+"['ambitious', 'blushing', 'different', 'exuberant', 'loving', 'powerful', 'silly']"
+['silly']
+['proud']
+"['ambitious', 'helpful', ['blushing', 'silly']]"
+"['ambitious', 'broad-minded', 'helpful', 'loving', 'reserved', 'silly', ['blushing', 'rude'], ['different', 'rude'], ['exuberant', 'rude'], ['powerful', 'rude']]"
+"['ambitious', 'grumpy', 'reserved']"
+"['friendly', 'plain', 'powerful']"
+"['friendly', 'plain', 'powerful']"
+['frightened']
+['frightened']
+['frightened']
+"['friendly', 'plain', 'powerful']"
+"['friendly', 'plain', 'powerful']"
+['frightened']
+['frightened']
+['plain']
+"['frightened', 'plain', 'victorious', 'worried', 'wrong']"
+"['frightened', 'plain', 'victorious', 'worried', 'wrong']"
+['frightened']
+['frightened']
+['frightened']
+['frightened']
+['frightened']
+"['friendly', 'plain', 'powerful']"
+['plain']
+"['adorable', 'frantic', 'sensible', 'weary', ['sleepy', 'talkative']]"
+"['messy', 'sleepy', 'talkative', 'weary', 'zealous', ['adorable', 'elated']]"
+"['adorable', 'frantic', 'sensible', 'weary', ['sleepy', 'talkative']]"
+"['adorable', 'frantic', 'sensible', 'weary', ['sleepy', 'talkative']]"
+"['bright', 'frantic', 'mysterious', 'talkative', 'uptight']"
+"['mysterious', 'uptight']"
+"['adorable', 'frantic', 'sensible', 'weary', ['sleepy', 'talkative']]"
+"['messy', 'weary', ['frantic', 'sleepy']]"
+['mean']
+"['bright', 'easy', 'fearless', 'mean', 'mysterious', 'uptight', 'weary', ['frantic', 'messy'], ['messy', 'sensible']]"
+"['easy', 'fearless', 'mean', 'messy', 'talkative', 'uptight', 'weary']"
+['enchanting']
+"['worried', ['charming', 'nervous']]"
+['charming']
+"['charming', 'worried']"
+"['enchanting', 'selfish', ['average', 'talkative'], ['beautiful', 'talkative'], ['charming', 'talkative'], ['difficult', 'talkative'], ['dull', 'talkative'], ['lucky', 'talkative'], ['mean', 'talkative'], ['talkative', 'thoughtful']]"
+"['enchanting', 'selfish', 'talkative']"
+"['bad-tempered', 'confident', 'embarrassed', 'fancy', 'gifted', 'pessimistic', 'popular']"
+['famous']
+"['bad-tempered', 'confident', 'embarrassed', 'fancy', 'gifted', 'pessimistic', 'popular']"
+"['cooperative', 'outrageous', 'troubled', 'weary']"
+"['blushing', 'cooperative', 'frightened', 'light', 'rude', 'troubled', ['anxious', 'frail'], ['anxious', 'straightforward'], ['frail', 'straightforward'], ['straightforward', 'weary']]"
+"['anxious', 'average', 'cooperative', 'helpful', 'inquisitive', 'outrageous', 'rude', 'troubled', 'worried']"
+"['anxious', 'blushing', 'cooperative', 'frail', 'light', 'rude', 'troubled', 'weary', ['average', 'frightened'], ['frightened', 'inquisitive']]"
+"['anxious', 'average', 'cooperative', 'frail', 'inquisitive', 'light', 'rude', 'troubled', 'weary']"
+"['blushing', 'cooperative', 'frail', 'frightened', 'helpful', 'light', 'messy', 'straightforward', 'troubled', 'worried', ['disobedient', 'rude'], ['outrageous', 'rude'], ['rude', 'weary']]"
+"['blushing', 'cooperative', 'frightened', 'light', 'rude', 'troubled', ['anxious', 'frail'], ['anxious', 'straightforward'], ['frail', 'straightforward'], ['straightforward', 'weary']]"
+"['blushing', 'cooperative', 'frightened', 'light', 'rude', 'straightforward', 'troubled', ['anxious', 'frail']]"
+"['blushing', 'cooperative']"
+"['anxious', 'blushing', 'cooperative', 'frightened', 'helpful', 'rude', 'straightforward', 'troubled', 'worried']"
+"['blushing', 'cooperative', 'helpful', 'light', 'messy', 'rude', 'troubled', 'worried', ['anxious', 'frail'], ['anxious', 'frightened'], ['anxious', 'straightforward'], ['average', 'frightened'], ['frail', 'frightened'], ['frail', 'straightforward'], ['frightened', 'inquisitive'], ['frightened', 'weary'], ['straightforward', 'weary']]"
+"['anxious', 'blushing', 'cooperative', 'troubled', 'weary']"
+"['anxious', 'blushing', 'cooperative', 'helpful', 'inquisitive', 'light', 'messy', 'outrageous', 'rude', 'troubled', 'worried', ['average', 'frightened']]"
+"['adorable', 'condemned', 'naughty', 'thoughtful', ['frail', 'stormy']]"
+"['adorable', 'condemned', 'naughty', 'old-fashioned', 'thoughtful', ['frail', 'stormy']]"
+"['adorable', 'condemned', 'naughty', 'stormy', 'thoughtful', 'wide-eyed']"
+"['adorable', 'condemned', 'naughty', 'stormy', 'thoughtful']"
+"['ugliest', 'wide-eyed']"
+"['wrong', ['frail', 'stormy']]"
+['wide-eyed']
+['wide-eyed']
+"['ugliest', 'wide-eyed', 'wrong']"
+"['adorable', 'condemned', 'naughty', 'thoughtful', 'ugliest', 'wide-eyed', ['frail', 'stormy']]"
+"['adorable', 'condemned', 'naughty', 'stormy', 'thoughtful', 'wide-eyed']"
+"['adorable', 'condemned', 'frail', 'naughty', 'thoughtful']"
+"['adorable', 'condemned', 'naughty', 'thoughtful', 'wide-eyed', ['frail', 'stormy'], ['stormy', 'ugliest']]"
+"['adorable', 'condemned', 'naughty', 'thoughtful', ['frail', 'stormy']]"
+['adorable']
+['adorable']
+['adorable']
+['adorable']
+['adorable']
+['adorable']
+['adorable']
+['adorable']
+['adorable']
+['adorable']
+['adorable']
+['adorable']
+['adorable']
+['adorable']
+['adorable']
+"['diplomatic', 'inquisitive', 'ugliest']"
+"['diplomatic', 'inquisitive', 'outrageous', 'ugliest']"
+"['outstanding', 'ugly']"
+['distinct']
+"['outstanding', 'ugly']"
+"['condemned', 'distinct', 'easy', 'smart']"
+"['distinct', 'friendly', 'inexpensive', 'pessimistic', 'smart']"
+['smart']
+"['condemned', 'easy', 'inexpensive', 'pessimistic', 'smart']"
+"['condemned', 'difficult', 'easy', 'homely', 'smart', 'tender', 'tidy', 'troubled', 'wide-eyed']"
+"['distinct', 'friendly', 'pessimistic', 'proud', 'smart']"
+"['condemned', 'confident', 'easy', 'homely', 'inexpensive', 'pessimistic', 'smart']"
+"['inexpensive', 'pessimistic', 'smart']"
+"['condemned', 'confident', 'distinct', 'easy', 'friendly', 'homely', 'pessimistic', 'proud', 'smart', 'tender', 'wide-eyed']"
+"['condemned', 'confident', 'distinct', 'easy', 'homely', 'pessimistic', 'proud', 'smart', 'tender', 'wide-eyed', ['cooperative', 'friendly'], ['friendly', 'impatient'], ['friendly', 'precious'], ['friendly', 'tidy']]"
+"['tidy', 'troubled']"
+"['bad-tempered', 'calm', 'exuberant', 'old-fashioned', 'witty']"
+"['bored', 'sensible', 'troubled', 'uptight', 'witty', ['calm', 'enchanting'], ['calm', 'old-fashioned'], ['charming', 'old-fashioned'], ['enchanting', 'exuberant'], ['enchanting', 'fancy'], ['exuberant', 'old-fashioned'], ['fancy', 'old-fashioned']]"
+"['bad-tempered', 'calm', 'fancy', 'old-fashioned', 'witty', ['enchanting', 'exuberant']]"
+"['calm', 'charming', 'exuberant']"
+"['calm', 'charming', 'exuberant', 'fancy', 'witty']"
+['witty']
+"['enchanting', 'old-fashioned', 'witty']"
+"['calm', 'exuberant', 'fancy', 'witty', ['charming', 'old-fashioned']]"
+"['agreeable', 'nervous', 'worried']"
+"['average', 'broad-minded', 'busy', 'clean', 'clumsy', 'confident', 'crowded', 'fancy', 'light', 'lonely', 'naughty', 'polite', 'rude', 'strange']"
+"['average', 'broad-minded', 'busy', 'clean', 'clumsy', 'confident', 'crowded', 'fancy', 'light', 'lonely', 'naughty', 'polite', 'rude', 'strange']"
+['outstanding']
+['tired']
+"['long', 'muddy']"
+"['calm', 'exuberant', 'fragile', 'frail', 'pleasant', 'polite', 'scared', 'ugliest']"
+"['proud', ['long', 'tired'], ['tired', 'ugliest'], ['attractive', 'outstanding', 'tired'], ['calm', 'outstanding', 'tired'], ['elegant', 'outstanding', 'tired'], ['outstanding', 'tired', 'troubled']]"
+"['calm', 'polite', 'troubled', 'ugliest', 'uptight', ['muddy', 'scared']]"
+"['calm', 'proud']"
+['calm']
+['tired']
+"['bored', 'friendly', 'quaint']"
+"['bored', 'messy', 'strange']"
+"['friendly', 'quaint']"
+"['charming', 'fragile', 'smart']"
+"['adorable', 'fragile', 'hurt', 'precious', 'stupid']"
+"['adorable', 'attentive', 'charming', 'fragile', 'unpleasant']"
+"['adorable', 'attentive', 'distinct', 'stupid', 'talented', ['charming', 'dull'], ['charming', 'impartial'], ['charming', 'precious'], ['cooperative', 'difficult'], ['cooperative', 'fragile'], ['cooperative', 'old-fashioned'], ['cooperative', 'unpleasant'], ['cute', 'difficult'], ['cute', 'fragile'], ['cute', 'old-fashioned'], ['dull', 'fragile'], ['fragile', 'impartial'], ['fragile', 'precious']]"
+"['clean', 'cute', 'embarrassed', 'glamorous', 'good', 'hurt', 'innocent', 'nervous', 'outrageous', 'quaint', 'tired']"
+"['curious', 'glamorous', 'outrageous', 'tired']"
+"['embarrassed', 'fine', 'innocent', 'nervous', 'pessimistic', 'thoughtful', ['careless', 'clean'], ['careless', 'quaint']]"
+"['embarrassed', 'fine', 'nervous', 'thoughtful', 'ugly', 'weary', ['careless', 'clean'], ['careless', 'innocent'], ['careless', 'quaint']]"
+"['beautiful', 'hurt']"
+"['adorable', 'beautiful', 'careless', 'cute', 'embarrassed', 'good', 'hurt', 'nervous', ['fine', 'innocent'], ['fine', 'pessimistic'], ['fine', 'ugly'], ['fine', 'weary'], ['innocent', 'thoughtful'], ['innocent', 'ugly'], ['innocent', 'weary'], ['pessimistic', 'thoughtful'], ['pessimistic', 'ugly'], ['pessimistic', 'weary'], ['thoughtful', 'ugly'], ['thoughtful', 'weary']]"
+"['adorable', 'clean', 'cute', 'embarrassed', 'glamorous', 'good', 'innocent', 'nervous', 'outrageous', 'powerful', 'quaint', 'tired', 'weary', ['fine', 'pessimistic'], ['pessimistic', 'thoughtful'], ['pessimistic', 'ugly']]"
+"['clean', 'embarrassed', 'glamorous', 'innocent', 'nervous', 'outrageous', 'pessimistic', 'quaint', 'tired']"
+"['curious', 'glamorous', 'outrageous', 'tired']"
+"['embarrassed', 'fine', 'innocent', 'nervous', 'pessimistic', 'thoughtful']"
+"['embarrassed', 'innocent', 'nervous', 'pessimistic', 'ugly', 'weary', ['careless', 'clean'], ['careless', 'quaint']]"
+"['embarrassed', 'innocent', 'nervous', 'pessimistic', 'ugly', 'weary']"
+"['adorable', 'beautiful', 'clean', 'cute', 'embarrassed', 'fine', 'good', 'hurt', 'nervous', 'powerful', 'quaint', 'thoughtful', 'ugly']"
+"['clean', 'embarrassed', 'nervous', 'quaint', ['innocent', 'powerful'], ['powerful', 'weary']]"
+"['adorable', 'beautiful', 'clean', 'cute', 'embarrassed', 'fine', 'good', 'hurt', 'nervous', 'quaint', 'thoughtful', 'ugly', ['innocent', 'powerful'], ['powerful', 'weary']]"
+"['clean', 'cute', 'embarrassed', 'fine', 'hurt', 'nervous', 'quaint', 'thoughtful', 'weary']"
+"['curious', 'glamorous', 'outrageous', 'tired', ['careless', 'clean'], ['careless', 'innocent'], ['careless', 'quaint']]"
+"['embarrassed', 'innocent', 'nervous', 'pessimistic', 'ugly', 'weary']"
+"['adorable', 'clean', 'cute', 'embarrassed', 'hurt', 'innocent', 'nervous', 'pessimistic', 'powerful', 'quaint']"
+"['fragile', 'gifted']"
+['gifted']
+['fragile']
+"['fragile', 'gifted']"
+"['fragile', 'gifted']"
+"['busy', 'easy', 'embarrassed', 'gifted', 'hypocritical', 'naughty', 'sleepy', 'supportive']"
+['fragile']
+"['average', 'exuberant', 'outrageous', 'victorious', ['silly', 'ugliest']]"
+"['average', 'dull', 'grumpy']"
+"['average', 'grumpy', ['dull', 'victorious']]"
+['troubled']
+"['average', 'grumpy', 'outrageous', ['dull', 'victorious'], ['silly', 'ugliest']]"
+"['ugliest', 'victorious']"
+"['inexpensive', 'polite', 'supportive']"
+['strange']
+['supportive']
+['supportive']
+"['mysterious', 'strange']"
+"['polite', ['mysterious', 'supportive'], ['strange', 'supportive']]"
+"['different', 'stubborn']"
+['fragile']
+['fragile']
+['fragile']
+"['different', 'muddy', 'stubborn']"
+['fragile']
+['fragile']
+"['fragile', 'muddy']"
+['fragile']
+['fragile']
+['fragile']
+['fragile']
+"['different', 'muddy', 'stubborn']"
+"['fragile', 'muddy']"
+['fragile']
+['fragile']
+['fragile']
+['fragile']
+"['fragile', 'muddy']"
+"['gleaming', 'impartial', 'nervous', 'old-fashioned', 'plain', 'popular', 'shiny', 'spotless', 'wandering', ['dull', 'sincere'], ['dull', 'smart']]"
+"['impartial', 'nervous', 'plain', 'popular', 'shiny', 'sincere', 'thoughtless', 'wandering', 'zealous', ['attentive', 'gleaming'], ['average', 'gleaming'], ['average', 'old-fashioned'], ['dull', 'smart'], ['easy', 'gleaming'], ['easy', 'old-fashioned']]"
+"['average', 'impartial', 'plain', 'popular', 'smart', 'spotless']"
+"['average', 'impartial', 'nervous', 'plain', 'popular', 'spotless', ['attentive', 'gleaming'], ['dull', 'smart'], ['gleaming', 'smart']]"
+"['nervous', 'plain', 'shiny', 'smart', ['attentive', 'gleaming'], ['average', 'gleaming'], ['average', 'old-fashioned'], ['easy', 'gleaming'], ['easy', 'old-fashioned']]"
+"['average', 'easy', 'impartial', 'nervous', 'plain', 'popular', 'shiny', 'sincere', 'thoughtless', 'wandering', ['attentive', 'gleaming'], ['dull', 'smart'], ['spotless', 'zealous'], ['gleaming', 'smart', 'zealous']]"
+"['dull', 'impartial', 'nervous', 'plain', 'spotless', 'wandering']"
+"['average', 'nervous', 'plain', 'smart', ['attentive', 'gleaming'], ['spotless', 'zealous']]"
+"['dull', 'gleaming', 'impartial', 'nervous', 'old-fashioned', 'plain', 'popular', 'shiny', 'spotless', 'wandering']"
+"['gleaming', 'impartial', 'nervous', 'old-fashioned', 'plain', 'popular', 'shiny', 'wandering', ['dull', 'sincere'], ['dull', 'smart'], ['sincere', 'spotless'], ['spotless', 'thoughtless'], ['spotless', 'zealous']]"
+"['gleaming', 'impartial', 'nervous', 'old-fashioned', 'plain', 'popular', 'shiny', 'wandering', ['dull', 'sincere'], ['dull', 'smart'], ['sincere', 'spotless'], ['spotless', 'thoughtless'], ['spotless', 'zealous']]"
+"['average', 'impartial', 'plain', 'popular', ['dull', 'smart'], ['spotless', 'zealous']]"
+"['condemned', 'impartial', 'nervous', 'plain', 'popular', 'selfish', 'shiny', 'shy', 'wandering', ['attentive', 'gleaming'], ['average', 'gleaming'], ['average', 'old-fashioned'], ['dull', 'sincere'], ['dull', 'smart'], ['easy', 'gleaming'], ['easy', 'old-fashioned'], ['gleaming', 'sincere'], ['gleaming', 'thoughtless'], ['old-fashioned', 'sincere'], ['old-fashioned', 'thoughtless'], ['sincere', 'spotless'], ['spotless', 'thoughtless'], ['spotless', 'zealous'], ['gleaming', 'smart', 'zealous']]"
+"['average', 'plain', 'smart', ['spotless', 'zealous']]"
+"['gleaming', 'impartial', 'nervous', 'plain', 'popular', 'shiny', 'wandering', ['average', 'old-fashioned'], ['dull', 'sincere'], ['dull', 'smart'], ['easy', 'old-fashioned'], ['old-fashioned', 'sincere'], ['old-fashioned', 'thoughtless'], ['sincere', 'spotless'], ['spotless', 'thoughtless'], ['spotless', 'zealous']]"
+"['dull', 'impartial', 'plain', 'spotless', 'wandering']"
+"['attentive', 'average', 'easy', 'impartial', 'nervous', 'plain', 'popular', 'shiny', 'sincere', 'thoughtless', 'wandering', ['dull', 'smart'], ['smart', 'zealous'], ['spotless', 'zealous']]"
+"['dull', 'gleaming', 'impartial', 'nervous', 'plain', 'popular', 'shiny', 'spotless', 'wandering', ['average', 'old-fashioned'], ['easy', 'old-fashioned'], ['old-fashioned', 'sincere'], ['old-fashioned', 'thoughtless']]"
+"['impartial', 'nervous', 'plain', 'popular', 'shiny', 'sincere', 'smart', 'wandering', ['attentive', 'gleaming'], ['average', 'gleaming'], ['average', 'old-fashioned'], ['easy', 'gleaming'], ['easy', 'old-fashioned'], ['gleaming', 'thoughtless'], ['old-fashioned', 'thoughtless'], ['spotless', 'thoughtless'], ['spotless', 'zealous']]"
+"['proud', 'wrong']"
+"['scared', 'unpleasant']"
+['wrong']
+"['unpleasant', 'witty']"
+"['scared', 'unpleasant']"
+"['anxious', 'crowded', 'frail', 'proud', 'unpleasant', 'witty']"
+"['unpleasant', 'witty']"
+['easy']
+"['proud', 'wrong']"
+['easy']
+"['scared', 'unpleasant']"
+['wrong']
+['easy']
+"['scared', 'unpleasant']"
+['easy']
+['wrong']
+"['frail', 'proud', 'unpleasant', 'witty']"
+['wrong']
+['easy']
+['wrong']
+['wrong']
+['wrong']
+"['anxious', 'elated', 'frail', 'scared', 'unpleasant', 'witty']"
+"['unpleasant', 'witty']"
+"['proud', 'unpleasant']"
+"['comfortable', 'dull', 'exuberant', 'fancy', 'frightened', 'joyous', 'messy', 'polite', 'powerful', 'tired']"
+"['dull', 'joyous']"
+"['clumsy', 'difficult', 'ugly']"
+"['clumsy', 'combative', 'difficult', 'exuberant', 'hypocritical', 'spotless', 'ugly']"
+"['difficult', 'ugly']"
+"['clumsy', 'combative', 'difficult', 'exuberant', 'spotless', 'stubborn']"
+"['clumsy', 'combative', 'difficult', 'exuberant', 'hypocritical', 'spotless', 'stubborn', 'wide-eyed']"
+"['clumsy', 'difficult', 'ugly']"
+"['clumsy', 'ugly']"
+"['clumsy', 'difficult', 'hypocritical', 'spotless', 'stubborn', 'ugly']"
+"['bright', 'dishonest', 'embarrassed']"
+"['bright', 'frantic', 'proud', 'thoughtful', 'ugliest']"
+['dishonest']
+['dishonest']
+['dishonest']
+['dishonest']
+"['bright', 'embarrassed']"
+"['bright', 'dishonest', 'embarrassed']"
+['dishonest']
+['dishonest']
+['dishonest']
+['dishonest']
+['dishonest']
+"['cooperative', 'fancy', 'hypocritical', 'lonely', 'outrageous', 'perfect']"
+"['cooperative', 'fancy', 'hypocritical', 'lonely', 'outrageous', 'perfect']"
+"['anxious', 'busy', 'diplomatic', 'fragile', 'lonely', 'plain', 'precious', 'proud', 'reserved', 'silly', 'zealous']"
+"['innocent', 'old-fashioned']"
+['old-fashioned']
+"['diplomatic', 'sleepy', 'talkative']"
+"['popular', 'supportive']"
+"['popular', 'supportive']"
+"['popular', 'supportive', 'thoughtless']"
+"['popular', 'sleepy', 'supportive', 'thoughtless']"
+"['popular', 'sleepy', ['stubborn', 'supportive']]"
+"['popular', 'supportive']"
+"['popular', 'supportive']"
+"['popular', 'supportive']"
+"['popular', 'sleepy', ['stubborn', 'supportive']]"
+"['popular', 'supportive']"
+"['popular', 'supportive']"
+"['popular', 'sleepy', 'stubborn']"
+"['popular', 'sleepy', 'stubborn']"
+"['popular', 'sleepy', ['stubborn', 'supportive']]"
+"['popular', 'sleepy', 'supportive', 'thoughtless']"
+"['popular', 'supportive']"
+"['popular', 'sleepy', 'supportive', 'thoughtless']"
+"['popular', 'sleepy', ['stubborn', 'supportive']]"
+"['popular', 'supportive', 'thoughtless']"
+"['popular', 'sleepy', ['stubborn', 'supportive']]"
+"['popular', 'supportive', 'thoughtless']"
+"['popular', 'sleepy', ['stubborn', 'supportive']]"
+"['popular', 'supportive', 'thoughtless']"
+"['popular', 'supportive', 'thoughtless']"
+"['popular', 'supportive', 'thoughtless']"
+"['popular', 'sleepy', ['stubborn', 'supportive']]"
+"['popular', 'sleepy', 'stubborn']"
+"['popular', 'supportive', 'thoughtless']"
+"['popular', 'supportive']"
+"['popular', 'sleepy', ['stubborn', 'supportive']]"
+"['popular', 'sleepy', 'supportive', 'thoughtless']"
+"['frail', 'frightened', 'inexpensive']"
+"['fancy', 'frightened', 'long', 'mysterious', 'straightforward']"
+"['frail', 'frightened', 'inexpensive']"
+"['frail', 'frightened', 'inexpensive', 'mysterious', 'spotless']"
+"['fragile', 'naughty', 'strange']"
+"['frail', 'frightened', 'inexpensive']"
+"['fragile', 'strange']"
+"['frail', 'frightened', 'inexpensive']"
+"['inexpensive', 'strange']"
+"['fancy', 'frightened', 'long', 'mysterious', 'straightforward']"
+"['fragile', 'naughty', 'strange']"
+"['inexpensive', 'mysterious', 'strange']"
+"['fragile', 'strange']"
+"['frail', 'frightened', 'inexpensive', 'mysterious']"
+"['different', 'fragile', 'long', 'straightforward']"
+"['frail', 'frightened', 'inexpensive', 'mysterious', 'spotless']"
+"['fearless', 'hypocritical']"
+['unpleasant']
+['attractive']
+"['lonely', 'messy', ['broad-minded', 'sleepy'], ['sleepy', 'tired']]"
+['helpful']
+['attractive']
+"['attractive', 'broad-minded', 'busy', 'helpful']"
+"['attractive', 'helpful', 'messy']"
+"['helpful', 'zealous']"
+"['amused', 'attentive', 'dull']"
+"['good', 'powerful']"
+['precious']
+"['precious', 'tender']"
+"['good', 'powerful']"
+"['tender', ['good', 'precious'], ['powerful', 'precious']]"
+"['precious', 'tender']"
+"['tender', ['famous', 'precious'], ['gifted', 'precious']]"
+"['tender', ['good', 'precious'], ['powerful', 'precious']]"
+['precious']
+"['famous', 'gifted', 'tender']"
+"['crowded', 'cruel', 'fine', 'homely', 'innocent', 'loving', 'shiny', 'strange', 'victorious', ['broad-minded', 'tender'], ['clumsy', 'tender'], ['distinct', 'tender'], ['famous', 'tender'], ['jittery', 'tender'], ['sincere', 'tender']]"
+"['crowded', 'cruel', 'fine', 'homely', 'innocent', 'loving', 'shiny', 'strange', 'victorious']"
+"['crowded', 'cruel', 'homely']"
+"['crowded', 'cruel', 'homely', 'innocent', 'loving']"
+"['cruel', 'homely', 'innocent', 'loving', ['broad-minded', 'tender'], ['clumsy', 'tender'], ['distinct', 'tender'], ['famous', 'tender'], ['jittery', 'tender'], ['sincere', 'tender']]"
+"['crowded', 'diplomatic', 'homely', 'loving', 'proud', ['broad-minded', 'cruel'], ['broad-minded', 'innocent'], ['cruel', 'distinct'], ['cruel', 'horrible'], ['cruel', 'jittery'], ['cruel', 'sincere'], ['distinct', 'innocent'], ['innocent', 'jittery'], ['innocent', 'sincere']]"
+"['crowded', 'cruel', 'homely']"
+"['crowded', 'diplomatic', 'horrible', 'loving', 'proud']"
+"['crowded', 'cruel', 'diplomatic', 'homely', 'proud']"
+"['crowded', 'cruel', 'homely', 'innocent', 'loving', ['broad-minded', 'tender'], ['clumsy', 'tender'], ['distinct', 'tender'], ['famous', 'tender'], ['jittery', 'tender'], ['sincere', 'tender']]"
+"['cruel', 'diplomatic', 'homely', ['bright', 'crowded'], ['bright', 'proud'], ['crowded', 'proud']]"
+"['cruel', 'diplomatic', 'homely', 'loving', ['bright', 'crowded'], ['bright', 'proud'], ['broad-minded', 'innocent'], ['crowded', 'innocent'], ['crowded', 'proud'], ['distinct', 'innocent'], ['innocent', 'jittery'], ['innocent', 'proud'], ['innocent', 'sincere']]"
+['bad-tempered']
+"['bad-tempered', 'dishonest']"
+"['bad-tempered', 'broad-minded']"
+"['bad-tempered', 'courageous', 'selfish', 'tense', 'worried', ['broad-minded', 'dishonest']]"
+"['ambitious', 'condemned', 'disobedient', 'fine', 'mean', 'strange', 'wrong', ['average', 'enchanting']]"
+"['ambitious', 'average', 'fine', 'inquisitive', 'mean', 'popular', 'shiny']"
+"['ambitious', 'average', 'confused', 'fine', 'popular', 'strange']"
+"['ambitious', 'disobedient', 'fine', 'inquisitive', 'shiny', 'strange', ['average', 'enchanting']]"
+"['ambitious', 'disobedient']"
+"['ambitious', 'average', 'confused', 'fine', 'popular', 'strange']"
+"['ambitious', 'disobedient']"
+"['ambitious', 'inquisitive', 'shiny']"
+"['ambitious', 'average', 'enchanting', 'fine', 'loving', 'mean', 'wrong']"
+"['hilarious', 'ugly']"
+['hilarious']
+['exuberant']
+['aggressive']
+['aggressive']
+"['hilarious', 'ugly']"
+"['clean', 'ugly', 'weary']"
+['hilarious']
+"['hilarious', 'ugly']"
+"['amused', 'courageous', 'disgusted', 'glamorous', 'gorgeous', 'old-fashioned', 'reserved', ['dishonest', 'helpful', 'horrible']]"
+"['amused', 'courageous', 'glamorous', 'gorgeous', 'hurt']"
+"['courageous', 'disgusted', 'glamorous', 'hurt', 'old-fashioned', 'reserved', ['dishonest', 'horrible']]"
+"['helpful', 'old-fashioned']"
+"['amused', 'courageous', 'glamorous', 'gorgeous', 'reserved', ['dishonest', 'horrible']]"
+"['courageous', 'disgusted', 'glamorous', 'hurt', 'old-fashioned', 'reserved', ['dishonest', 'helpful', 'horrible']]"
+"['amused', 'courageous', 'disgusted', 'excited', 'frightened', 'glamorous', 'gorgeous', 'old-fashioned', 'reserved', 'stormy']"
+"['amused', 'careless', 'courageous', 'disgusted', 'excited', 'friendly', 'frightened', 'glamorous', 'gorgeous', 'hurt', 'modern', 'old-fashioned', 'reserved', 'stormy', ['dishonest', 'helpful', 'horrible']]"
+"['amused', 'courageous', 'glamorous', 'hurt', 'old-fashioned']"
+"['courageous', 'disgusted', 'glamorous', 'hurt', 'old-fashioned', 'reserved', ['helpful', 'horrible']]"
+"['amused', 'careless', 'courageous', 'disgusted', 'excited', 'friendly', 'frightened', 'glamorous', 'gorgeous', 'hurt', 'modern', 'old-fashioned', 'reserved', 'stormy', ['dishonest', 'horrible']]"
+"['amused', 'careless', 'courageous', 'disgusted', 'excited', 'friendly', 'frightened', 'glamorous', 'gorgeous', 'hurt', 'modern', 'old-fashioned', 'reserved', 'stormy', ['dishonest', 'helpful', 'horrible']]"
+"['courageous', 'disgusted', 'glamorous', 'old-fashioned', 'reserved', ['dishonest', 'helpful', 'horrible']]"
+"['amused', 'courageous', 'disgusted', 'glamorous', 'gorgeous', 'hurt', 'old-fashioned', 'reserved', ['dishonest', 'horrible']]"
+"['amused', 'courageous', 'disgusted', 'glamorous', 'gorgeous', 'hurt', 'old-fashioned', 'reserved', ['helpful', 'horrible']]"
+"['amused', 'careless', 'courageous', 'disgusted', 'excited', 'friendly', 'frightened', 'glamorous', 'gorgeous', 'hurt', 'modern', 'old-fashioned', 'reserved', 'stormy', ['dishonest', 'helpful', 'horrible']]"
+"['amused', 'courageous', 'glamorous', 'hurt', 'old-fashioned']"
+"['amused', 'courageous', 'disgusted', 'glamorous', 'gorgeous', 'old-fashioned', 'reserved', ['dishonest', 'helpful', 'horrible']]"
+"['agreeable', 'confident', 'naughty', 'supportive', 'tame']"
+['confident']
+"['distinct', 'frightened', 'straightforward', 'tame']"
+['confident']
+"['cruel', 'fancy', 'fine', 'mysterious', 'victorious', 'wandering']"
+"['fine', 'victorious']"
+"['busy', 'combative', 'shy']"
+"['busy', 'combative', 'shy']"
+"['busy', 'combative', 'shy']"
+"['disgusted', 'embarrassed', 'frail', 'hypocritical', 'unpleasant']"
+"['exuberant', 'mean', 'pessimistic', 'popular', 'strange']"
+"['exuberant', 'mean', 'outstanding', 'strange', 'witty']"
+['tender']
+"['dishonest', 'silly', 'sleepy', 'thoughtful', ['cruel', 'difficult'], ['cruel', 'ugly'], ['difficult', 'famous'], ['famous', 'ugly']]"
+"['dishonest', 'famous', 'tender']"
+"['dishonest', 'famous', 'tender']"
+"['pleasant', 'tender', ['distinct', 'fragile'], ['fragile', 'reserved']]"
+"['wandering', 'weary']"
+['alert']
+"['wandering', 'weary']"
+['jittery']
+"['wandering', 'weary']"
+"['wandering', 'weary']"
+['jittery']
+"['wandering', 'weary']"
+"['elegant', 'jittery']"
+"['wandering', 'weary']"
+['jittery']
+['alert']
+['elegant']
+"['different', 'fine', 'lonely']"
+['inexpensive']
+"['fine', 'lonely']"
+"['famous', 'thoughtful']"
+"['different', 'thoughtful']"
+"['bad-tempered', 'bored', 'homely', 'horrible', 'intellectual', 'long', 'shiny', 'sleepy', 'thoughtful', ['different', 'famous']]"
+"['thoughtful', ['different', 'famous']]"
+"['courageous', 'disgusted', 'worried', ['frightened', 'light'], ['light', 'serious']]"
+"['courageous', 'disgusted', 'light']"
+['proud']
+"['courageous', 'disgusted', 'light', 'worried']"
+"['courageous', 'frightened', 'worried']"
+"['courageous', 'frightened', 'nervous', 'worried']"
+"['courageous', 'frightened']"
+"['courageous', 'disgusted', 'frightened', 'serious']"
+"['courageous', 'frightened', 'worried', ['disgusted', 'nervous'], ['nervous', 'serious']]"
+"['popular', 'powerful', 'proud', 'shy', 'ugly', 'victorious']"
+"['proud', 'victorious']"
+['victorious']
+"['amused', 'messy', 'plain', 'popular', 'proud', 'serious', 'victorious', 'wrong']"
+"['attentive', 'old-fashioned', 'plain', 'popular', 'proud', 'shy', 'victorious']"
+"['bright', 'different', 'joyous', 'popular', 'powerful', 'shy', 'ugly', 'victorious', ['good', 'proud']]"
+['victorious']
+"['popular', 'victorious', ['good', 'proud']]"
+"['victorious', ['good', 'proud']]"
+"['attentive', 'old-fashioned', 'plain', 'popular', 'proud', 'shy', 'ugly', 'victorious']"
+"['aggressive', 'bright', 'easy', 'good', 'jittery', 'joyous', 'popular', 'proud', 'shy', 'victorious', ['attentive', 'messy'], ['attentive', 'wrong'], ['messy', 'old-fashioned'], ['messy', 'plain'], ['old-fashioned', 'wrong'], ['plain', 'wandering'], ['plain', 'wrong'], ['amused', 'old-fashioned', 'wandering'], ['old-fashioned', 'serious', 'wandering']]"
+"['old-fashioned', 'plain', 'proud', 'shy', 'victorious']"
+"['bright', 'different', 'joyous', 'popular', 'powerful', 'shy', 'ugly', 'victorious', ['good', 'proud']]"
+"['old-fashioned', 'plain', 'popular', 'proud', 'shy', 'victorious', ['attentive', 'messy'], ['attentive', 'wrong']]"
+"['bright', 'different', 'joyous', 'popular', 'powerful', 'shy', 'ugly', 'victorious', ['good', 'proud']]"
+"['aggressive', 'bright', 'good', 'joyous', 'popular', 'proud', 'shy', 'victorious', ['attentive', 'easy'], ['attentive', 'jittery'], ['easy', 'old-fashioned'], ['easy', 'plain'], ['easy', 'serious'], ['easy', 'ugly'], ['jittery', 'old-fashioned'], ['jittery', 'plain'], ['jittery', 'ugly'], ['plain', 'wandering'], ['amused', 'old-fashioned', 'wandering'], ['attentive', 'messy', 'ugly'], ['attentive', 'ugly', 'wrong'], ['messy', 'old-fashioned', 'ugly'], ['messy', 'old-fashioned', 'wandering'], ['messy', 'plain', 'ugly'], ['old-fashioned', 'serious', 'wandering'], ['old-fashioned', 'ugly', 'wrong'], ['old-fashioned', 'wandering', 'wrong'], ['plain', 'ugly', 'wrong']]"
+"['aggressive', 'helpless', 'perfect']"
+"['aggressive', 'busy', 'innocent', 'perfect', 'tired']"
+"['busy', 'good', 'helpless', 'innocent', 'perfect', 'tired']"
+"['aggressive', 'helpless', 'perfect']"
+"['aggressive', 'helpless', 'perfect']"
+"['fine', ['careless', 'different']]"
+"['careless', 'fine']"
+['different']
+"['aggressive', 'hilarious', 'inexpensive', 'stubborn']"
+"['ugly', ['aggressive', 'stormy'], ['stormy', 'stubborn']]"
+"['aggressive', 'inexpensive', 'stubborn']"
+"['aggressive', 'calm', 'stubborn', ['hilarious', 'serious', 'ugly'], ['hilarious', 'ugly', 'uptight']]"
+"['inexpensive', 'stormy']"
+"['inexpensive', 'joyous', ['aggressive', 'stormy'], ['aggressive', 'ugly'], ['calm', 'ugly'], ['stormy', 'stubborn'], ['stubborn', 'ugly'], ['ugly', 'uptight']]"
+['serious']
+"['inexpensive', 'stormy']"
+"['ugly', ['aggressive', 'stormy'], ['stormy', 'stubborn'], ['calm', 'selfish', 'stormy']]"
+"['aggressive', 'stubborn']"
+"['aggressive', 'selfish', 'stubborn']"
+"['inexpensive', ['aggressive', 'stormy'], ['aggressive', 'ugly'], ['calm', 'ugly'], ['stormy', 'stubborn'], ['stubborn', 'ugly'], ['calm', 'selfish', 'stormy'], ['hilarious', 'serious', 'ugly'], ['hilarious', 'ugly', 'uptight']]"
+"['inexpensive', 'stormy']"
+"['inexpensive', 'ugly', ['aggressive', 'stormy'], ['stormy', 'stubborn']]"
+['stormy']
+"['aggressive', 'calm', 'stubborn', ['hilarious', 'serious'], ['hilarious', 'uptight']]"
+['stormy']
+"['inexpensive', 'stormy']"
+"['aggressive', 'stubborn', ['calm', 'selfish']]"
+"['inexpensive', 'stormy', 'ugly']"
+"['aggressive', 'calm', 'stubborn', 'uptight']"
+"['aggressive', 'calm', 'inexpensive', 'stubborn', 'uptight']"
+['stormy']
+"['ugly', ['aggressive', 'stormy'], ['stormy', 'stubborn'], ['calm', 'selfish', 'stormy']]"
+"['inexpensive', 'ugly', ['aggressive', 'stormy'], ['stormy', 'stubborn']]"
+"['hilarious', 'stubborn']"
+"['ugly', ['aggressive', 'stormy'], ['stormy', 'stubborn']]"
+"['aggressive', 'hilarious', 'inexpensive', 'stubborn']"
+"['inexpensive', 'stormy']"
+"['aggressive', 'stubborn', ['calm', 'selfish']]"
+['serious']
+"['attractive', 'busy', 'mean', 'ugly', ['frail', 'stubborn', 'worrisome']]"
+"['attractive', 'busy', 'ugly', ['frail', 'stubborn'], ['mean', 'tender']]"
+"['anxious', 'attractive', 'average', 'busy', 'courageous', 'cruel', 'difficult', 'foolish', 'fragile', 'frantic', 'grumpy', 'light', 'muddy', 'pleasant', 'talkative', 'troubled', 'ugly', 'victorious', ['mean', 'tender'], ['frail', 'stubborn', 'worrisome']]"
+"['agreeable', 'unpleasant', 'zealous']"
+"['unpleasant', 'zealous']"
+['courageous']
+['courageous']
+"['agreeable', 'unpleasant', 'zealous']"
+"['courageous', 'unpleasant', 'zealous']"
+"['calm', 'crowded', 'cruel', 'cute', ['difficult', 'hilarious'], ['distinct', 'hilarious']]"
+"['calm', 'crowded', 'cruel', 'cute', 'difficult', 'distinct']"
+"['calm', 'hilarious']"
+"['calm', 'hilarious']"
+"['calm', 'crowded', 'cruel', 'cute', 'horrible', ['difficult', 'hilarious'], ['distinct', 'hilarious']]"
+"['calm', 'crowded', 'cruel', 'cute', 'hilarious']"
+"['calm', 'crowded', 'cruel', 'cute', 'hilarious']"
+"['pessimistic', 'selfish', ['blushing', 'frightened']]"
+['frightened']
+"['dishonest', 'hurt', 'lucky']"
+"['calm', 'dishonest', 'fancy', 'hurt', 'lucky', 'mysterious']"
+"['dishonest', 'hurt', 'lucky']"
+"['busy', 'gleaming', 'hypocritical', ['bad-tempered', 'spotless'], ['fancy', 'spotless'], ['intellectual', 'spotless']]"
+"['busy', 'gleaming', 'spotless']"
+"['hypocritical', 'joyous']"
+"['gleaming', 'spotless']"
+"['busy', 'gleaming', 'hypocritical', 'spotless']"
+"['gleaming', 'spotless']"
+"['busy', 'gleaming', 'spotless']"
+"['busy', 'gleaming', 'hypocritical', 'spotless']"
+"['broad-minded', 'busy', 'hilarious', 'hypocritical']"
+"['gleaming', 'spotless']"
+"['broad-minded', 'different', 'hilarious', 'hypocritical', 'joyous', 'shy', 'tidy']"
+"['broad-minded', 'hilarious', 'hypocritical', 'joyous', 'shy', 'tidy', ['bad-tempered', 'different']]"
+"['busy', 'gleaming', 'spotless']"
+"['aggressive', 'clean', 'dull', 'elated', 'gifted', 'good', 'innocent', 'lucky', 'modern', 'pessimistic', 'sleepy']"
+"['clean', 'elated', 'innocent', 'lucky']"
+"['clean', 'dull', 'elated', 'innocent', 'lucky', ['aggressive', 'attentive']]"
+"['confident', 'elated', 'innocent', 'lucky']"
+"['confused', 'elated', 'gifted', 'innocent', 'lucky', 'modern', 'pessimistic', ['aggressive', 'attentive'], ['attentive', 'dull'], ['attentive', 'good'], ['attentive', 'sleepy'], ['clean', 'confident'], ['confident', 'dull'], ['confident', 'good'], ['difficult', 'dull'], ['difficult', 'good'], ['difficult', 'sleepy'], ['dull', 'good'], ['aggressive', 'clean', 'dull']]"
+"['amused', 'excited', 'hilarious', 'joyous', 'messy', 'stormy', 'wandering', ['bright', 'fragile'], ['bright', 'hypocritical'], ['bright', 'quaint']]"
+"['amused', 'bossy', 'excited', 'grumpy', 'hilarious', 'inquisitive', 'messy', 'outstanding', 'wandering', ['bright', 'fragile'], ['bright', 'hypocritical'], ['bright', 'joyous'], ['bright', 'modern'], ['bright', 'mysterious'], ['bright', 'quaint'], ['bright', 'shiny'], ['joyous', 'quaint'], ['modern', 'quaint'], ['mysterious', 'quaint'], ['mysterious', 'sincere'], ['quaint', 'shiny'], ['quaint', 'stormy'], ['sincere', 'stormy'], ['bright', 'impartial', 'uptight'], ['helpful', 'joyous', 'pessimistic'], ['helpful', 'joyous', 'sincere'], ['helpful', 'joyous', 'uptight'], ['helpful', 'modern', 'pessimistic'], ['helpful', 'modern', 'sincere'], ['helpful', 'modern', 'stormy'], ['helpful', 'modern', 'uptight'], ['helpful', 'pessimistic', 'shiny'], ['helpful', 'shiny', 'sincere'], ['helpful', 'shiny', 'uptight'], ['impartial', 'quaint', 'uptight'], ['impartial', 'sincere', 'uptight'], ['joyous', 'sincere', 'uptight'], ['modern', 'sincere', 'uptight'], ['shiny', 'sincere', 'uptight']]"
+"['amused', 'bossy', 'bright', 'excited', 'grumpy', 'hilarious', 'messy', 'quaint', 'sincere', 'wandering', ['helpful', 'joyous', 'pessimistic'], ['helpful', 'joyous', 'uptight'], ['helpful', 'modern', 'pessimistic'], ['helpful', 'modern', 'stormy'], ['helpful', 'modern', 'uptight'], ['helpful', 'pessimistic', 'shiny'], ['helpful', 'shiny', 'uptight']]"
+"['amused', 'bossy', 'excited', 'hilarious', 'uptight', 'wandering']"
+"['amused', 'bossy', 'bright', 'excited', 'grumpy', 'hilarious', 'messy', 'quaint', 'sincere', 'wandering', ['helpful', 'joyous'], ['helpful', 'modern'], ['helpful', 'shiny']]"
+"['amused', 'bossy', 'excited', 'grumpy', 'hilarious', 'messy', 'mysterious', 'stormy', 'wandering', ['bright', 'fragile'], ['bright', 'hypocritical'], ['bright', 'joyous'], ['bright', 'modern'], ['bright', 'quaint'], ['bright', 'shiny'], ['helpful', 'joyous'], ['helpful', 'modern'], ['helpful', 'shiny'], ['impartial', 'uptight'], ['joyous', 'quaint'], ['joyous', 'uptight'], ['modern', 'quaint'], ['modern', 'uptight'], ['quaint', 'shiny'], ['shiny', 'uptight']]"
+"['amused', 'excited', 'grumpy', 'hilarious', 'joyous', 'messy', 'wandering', ['sincere', 'stormy']]"
+"['aggressive', 'ambitious', 'fearless', 'hurt', 'perfect']"
+"['calm', 'easy', 'supportive']"
+"['bossy', 'easy', 'intellectual', 'supportive', 'thoughtful']"
+"['bossy', 'calm', 'inquisitive', 'supportive', 'thoughtful']"
+"['easy', 'intellectual']"
+"['calm', 'easy', 'supportive']"
+"['calm', 'easy', 'impatient', 'intellectual', 'supportive']"
+"['calm', 'distinct', 'reserved']"
+['reserved']
+['tender']
+"['calm', 'cute', 'distinct', 'quaint', 'straightforward']"
+"['calm', 'cute', 'distinct', 'quaint', 'straightforward']"
+"['distinct', 'reserved']"
+['foolish']
+['calm']
+"['calm', 'distinct', 'reserved', 'tender']"
+"['calm', 'distinct', 'reserved']"
+"['calm', 'distinct', 'reserved', 'tender']"
+"['calm', 'distinct', 'reserved', 'tender']"
+['tender']
+"['distinct', 'foolish', ['calm', 'courageous'], ['calm', 'joyous'], ['calm', 'loving']]"
+"['comfortable', 'enchanting', 'excited', 'joyous', 'straightforward']"
+"['comfortable', 'enchanting', 'excited', 'joyous', 'straightforward']"
+"['comfortable', 'enchanting', 'excited', 'joyous', 'straightforward']"
+"['comfortable', 'enchanting', 'excited', 'joyous', 'straightforward']"
+['enchanting']
+"['comfortable', 'enchanting', 'excited', 'joyous', 'straightforward']"
+['stormy']
+"['different', 'stubborn']"
+"['sleepy', 'tidy', ['helpful', 'homely']]"
+"['helpful', 'tidy']"
+"['adorable', 'beautiful', 'combative', 'good', 'gorgeous', 'inexpensive', ['bad-tempered', 'fearless'], ['bad-tempered', 'helpful'], ['bad-tempered', 'worried'], ['fearless', 'polite'], ['fearless', 'shiny'], ['fearless', 'worried'], ['helpful', 'polite'], ['helpful', 'shiny'], ['helpful', 'worried'], ['hilarious', 'worried'], ['light', 'worried'], ['polite', 'worried'], ['shiny', 'worried']]"
+"['adorable', 'bad-tempered', 'beautiful', 'combative', 'good', 'gorgeous', 'helpful', 'polite', 'rational', 'shiny', ['fearless', 'wrong'], ['light', 'wrong']]"
+"['beautiful', 'combative', 'fearless', 'good', 'gorgeous', 'helpful', 'worried', ['adorable', 'plain'], ['adorable', 'polite'], ['adorable', 'silly'], ['inexpensive', 'plain'], ['inexpensive', 'polite'], ['inexpensive', 'silly']]"
+"['bad-tempered', 'combative', 'gorgeous']"
+"['beautiful', 'combative', 'good', ['bad-tempered', 'fearless'], ['bad-tempered', 'helpful'], ['bad-tempered', 'worried'], ['fearless', 'polite'], ['fearless', 'shiny'], ['fearless', 'worried'], ['helpful', 'polite'], ['helpful', 'shiny'], ['helpful', 'worried'], ['hilarious', 'worried'], ['light', 'worried'], ['polite', 'worried'], ['shiny', 'worried']]"
+"['beautiful', 'combative', 'fearless', 'helpful', 'light', 'polite', ['bad-tempered', 'plain'], ['plain', 'shiny']]"
+"['combative', 'good']"
+"['combative', 'plain', 'polite']"
+[]
+"['beautiful', 'combative', 'good', 'gorgeous', 'helpful', 'horrible', 'plain', 'tame', 'wrong']"
+"['beautiful', 'combative', 'fearless', 'good', 'helpful', 'worried']"
+"['combative', 'gorgeous', 'shiny', ['adorable', 'helpful'], ['adorable', 'plain'], ['helpful', 'polite']]"
+"['beautiful', 'good', 'gorgeous', 'worried', ['adorable', 'silly'], ['inexpensive', 'silly']]"
+"['bad-tempered', 'beautiful', 'good', 'helpful', 'shiny', ['fearless', 'wrong'], ['light', 'wrong']]"
+['excited']
+['excited']
+"['amused', 'calm', 'confused', 'silly', 'wide-eyed', ['bad-tempered', 'clumsy'], ['bad-tempered', 'excited'], ['bad-tempered', 'grumpy'], ['bad-tempered', 'intellectual'], ['bad-tempered', 'pessimistic'], ['bad-tempered', 'talkative'], ['bad-tempered', 'uptight'], ['clumsy', 'excited'], ['excited', 'talkative'], ['intellectual', 'uptight'], ['excited', 'gleaming', 'pessimistic'], ['excited', 'gleaming', 'uptight'], ['excited', 'grumpy', 'pessimistic'], ['excited', 'grumpy', 'tender'], ['excited', 'grumpy', 'uptight']]"
+"['amused', 'bad-tempered', 'clumsy', 'pessimistic', 'silly', 'talkative', 'tender', 'uptight']"
+"['amused', 'bad-tempered', 'calm', 'confused', 'foolish', 'silly', 'talkative', 'tender', 'uptight', 'wide-eyed', ['clumsy', 'excited'], ['excited', 'grumpy'], ['excited', 'gleaming', 'pessimistic']]"
+"['amused', 'bad-tempered', 'excited', 'foolish', 'talkative', 'tender', 'uptight']"
+['excited']
+"['calm', 'talkative']"
+"['amused', 'bad-tempered', 'excited', 'foolish', 'talkative', 'tender', 'uptight']"
+"['amused', 'bad-tempered', 'calm', 'clumsy', 'confused', 'silly', 'talkative', 'wide-eyed', ['gleaming', 'pessimistic'], ['gleaming', 'uptight'], ['grumpy', 'pessimistic'], ['grumpy', 'tender'], ['grumpy', 'uptight'], ['intellectual', 'uptight']]"
+"['amused', 'bad-tempered', 'excited', 'uptight']"
+"['amused', 'bad-tempered', 'excited', 'uptight']"
+"['amused', 'calm', 'excited', 'intellectual', 'shiny', 'silly', 'talkative']"
+"['calm', 'talkative']"
+['sincere']
+['proud']
+"['crowded', 'old-fashioned', 'rational', 'rude', 'uptight']"
+"['crowded', 'embarrassed', 'old-fashioned', 'rational']"
+"['old-fashioned', ['adorable', 'helpful'], ['adorable', 'zealous'], ['helpful', 'rude'], ['rude', 'zealous']]"
+"['crowded', 'old-fashioned', 'rational', 'rude', ['hurt', 'uptight'], ['mysterious', 'uptight']]"
+"['crowded', 'embarrassed', 'light', 'old-fashioned', 'pessimistic', 'rational', 'tidy', 'wandering', ['adorable', 'helpful'], ['adorable', 'zealous'], ['helpful', 'rude'], ['rude', 'zealous']]"
+"['crowded', 'old-fashioned', 'rational', 'rude', 'uptight']"
+"['bad-tempered', 'crowded', 'embarrassed', 'good', 'light', 'old-fashioned', 'pessimistic', 'rational', 'tidy', 'wandering', ['adorable', 'helpful'], ['adorable', 'zealous'], ['helpful', 'rude'], ['rude', 'zealous']]"
+"['bad-tempered', 'crowded', 'embarrassed', 'good', 'helpful', 'light', 'old-fashioned', 'pessimistic', 'rational', 'tidy', 'wandering', 'zealous']"
+"['adorable', 'crowded', 'light', 'old-fashioned', 'pessimistic', 'rational', 'rude', 'tidy']"
+"['joyous', 'talkative']"
+"['talkative', ['adorable', 'joyous']]"
+"['talkative', ['adorable', 'joyous']]"
+"['adorable', 'talkative']"
+"['joyous', 'talkative']"
+"['talkative', ['adorable', 'joyous']]"
+"['adorable', 'talkative']"
+"['adorable', 'talkative']"
+['adorable']
+"['adorable', 'talkative']"
+['joyous']
+['joyous']
+"['joyous', 'talkative']"
+['adorable']
+"['adorable', 'talkative']"
+['adorable']
+"['anxious', 'embarrassed', 'loving']"
+"['blushing', 'embarrassed', 'loving']"
+"['loving', ['anxious', 'blushing']]"
+"['charming', 'loving']"
+"['embarrassed', 'loving', ['anxious', 'blushing']]"
+['loving']
+"['anxious', 'embarrassed', 'loving']"
+"['calm', 'condemned', 'cooperative', 'fancy', 'impartial', 'quaint', 'scared', 'sleepy', 'stormy', 'troubled', 'unpleasant']"
+"['homely', 'impartial', 'outrageous', 'powerful']"
+"['attentive', 'confused', 'different', 'disgusted', 'famous', 'hurt', 'mean']"
+"['perfect', 'pleasant', 'reserved', 'talkative', 'victorious']"
+['amused']
+"['amused', 'bossy']"
+"['amused', 'helpful']"
+['difficult']
+['difficult']
+['dishonest']
+"['broad-minded', 'clumsy', 'loving', 'pleasant', 'uptight']"
+"['broad-minded', 'clumsy', 'elated', ['disgusted', 'silly']]"
+['inexpensive']
+['inexpensive']
+['ugliest']
+['foolish']
+"['intellectual', 'vivacious', 'wrong']"
+"['shy', 'wrong']"
+['foolish']
+"['inexpensive', 'straightforward']"
+"['intellectual', 'straightforward', 'vivacious', 'wrong', ['inexpensive', 'shy'], ['inexpensive', 'ugliest']]"
+"['intellectual', 'vivacious', 'wrong']"
+"['intellectual', 'straightforward', 'vivacious', 'wrong', ['inexpensive', 'shy'], ['inexpensive', 'ugliest']]"
+"['inexpensive', 'straightforward']"
+['foolish']
+['light']
+['charming']
+['cruel']
+['charming']
+"['anxious', 'cruel']"
+"['anxious', 'cruel']"
+"['bright', 'light']"
+['charming']
+['cruel']
+"['light', 'worrisome']"
+['charming']
+"['alert', 'disobedient', 'helpful', 'loving', 'pessimistic', 'selfish', 'smart']"
+"['anxious', 'cruel']"
+"['bright', 'stupid']"
+"['bright', 'stupid']"
+"['bright', 'stupid']"
+['charming']
+"['anxious', 'cruel']"
+['cruel']
+['cruel']
+"['amused', 'long', 'popular', ['alert', 'proud'], ['alert', 'quaint'], ['proud', 'talkative'], ['quaint', 'talkative']]"
+"['difficult', 'inexpensive', 'long', 'popular', 'stupid', ['alert', 'proud'], ['alert', 'quaint'], ['amused', 'attractive'], ['proud', 'talkative'], ['quaint', 'talkative']]"
+"['attractive', 'long', 'popular', ['alert', 'proud'], ['alert', 'quaint'], ['proud', 'talkative'], ['quaint', 'talkative']]"
+"['alert', 'long', 'popular', 'talkative', ['amused', 'attractive']]"
+"['alert', 'long', 'popular', 'talkative', ['amused', 'attractive']]"
+"['aggressive', 'amused', 'bored', 'disgusted', 'gifted', 'gorgeous', 'messy', 'naughty', 'silly', 'thoughtful']"
+"['aggressive', 'amused', 'bored', 'disgusted', 'gifted', 'messy', 'naughty', 'precious', 'straightforward', 'thoughtful', 'ugly', ['blushing', 'gorgeous'], ['gorgeous', 'mysterious'], ['gorgeous', 'talented'], ['gorgeous', 'worrisome'], ['mysterious', 'silly'], ['silly', 'talented']]"
+"['aggressive', 'amused', 'blushing', 'bored', 'disgusted', 'gifted', 'messy', 'mysterious', 'naughty', 'talented', 'thoughtful', 'worrisome']"
+"['aggressive', 'mysterious', 'talented', 'thoughtful']"
+"['aggressive', 'amused', 'bored', 'disgusted', 'gifted', 'gorgeous', 'messy', 'naughty', 'thoughtful', ['mysterious', 'silly'], ['silly', 'talented']]"
+"['aggressive', 'disgusted', 'mysterious', 'naughty', 'talented', 'thoughtful']"
+"['aggressive', 'amused', 'bored', 'disgusted', 'gifted', 'gorgeous', 'messy', 'naughty', 'thoughtful', ['mysterious', 'silly'], ['silly', 'talented']]"
+"['aggressive', 'amused', 'bored', 'disgusted', 'gifted', 'gorgeous', 'messy', 'naughty', 'silly', 'thoughtful']"
+"['modern', 'powerful']"
+"['frail', 'modern', 'powerful']"
+['modern']
+"['modern', 'powerful']"
+"['modern', 'powerful']"
+"['frail', 'modern', 'powerful']"
+"['modern', 'powerful']"
+['powerful']
+"['frail', 'powerful']"
+"['modern', 'powerful']"
+['different']
+"['comfortable', 'disgusted', 'frail', 'good', 'hilarious', 'mysterious', 'plain', 'pleasant', 'talented']"
+"['innocent', 'scared', 'talented', 'tidy']"
+"['innocent', 'scared', 'talented', 'tidy']"
+"['frail', 'innocent', 'mysterious', 'talented']"
+"['frail', 'innocent', 'mysterious', 'talented']"
+"['comfortable', 'disgusted', 'good', 'hilarious', 'innocent', 'mysterious', 'scared', 'talented', 'tidy']"
+"['frail', 'innocent', 'precious', 'tame']"
+"['attentive', 'comfortable', 'easy', 'elegant', 'frail', 'innocent', 'light', 'precious', 'tame']"
+"['attentive', 'clumsy', 'comfortable', 'different', 'elegant', 'frail', 'precious', 'tame']"
+"['different', 'elegant', 'frail', 'precious']"
+"['attentive', 'comfortable', 'frail', 'innocent', 'precious', 'tame']"
+"['attentive', 'comfortable', 'frail', 'innocent', 'precious', 'tame']"
+['scared']
+['scared']
+['average']
+['elated']
+"['difficult', 'elated', 'embarrassed', ['average', 'helpful'], ['busy', 'helpful']]"
+"['zealous', ['elated', 'perfect']]"
+['scared']
+['elated']
+"['zealous', ['elated', 'perfect']]"
+['elated']
+['average']
+"['zealous', ['elated', 'perfect']]"
+"['busy', 'elated', 'quaint', 'tender']"
+"['zealous', ['elated', 'perfect']]"
+"['zealous', ['elated', 'perfect']]"
+['uptight']
+"['courageous', 'hypocritical', 'shy', 'silly', 'stubborn', 'uptight']"
+"['courageous', 'hypocritical', 'shy', 'silly', 'stubborn', 'thoughtful', 'troubled', 'uptight']"
+"['courageous', 'hypocritical', 'shy', 'silly', 'stubborn', 'uptight']"
+"['hypocritical', 'shy', 'silly', 'stubborn', 'uptight']"
+"['helpless', 'long', 'lucky']"
+"['helpless', 'lucky', 'wide-eyed']"
+['calm']
+"['dishonest', 'embarrassed', 'long']"
+"['calm', 'long', 'sensible']"
+"['calm', 'embarrassed', 'sensible', 'ugly']"
+"['confused', 'embarrassed', 'ugly', 'worrisome']"
+"['confused', 'embarrassed', 'ugly', 'worrisome']"
+"['clumsy', 'difficult', 'disobedient', 'distinct', 'glamorous', 'good', 'naughty', 'scared', 'shiny', 'witty', 'worried']"
+"['clumsy', 'disobedient', 'distinct', 'glamorous', 'good', 'naughty', 'scared', 'shiny', 'witty']"
+['wide-eyed']
+['wide-eyed']
+['wide-eyed']
+['attentive']
+"['careless', 'elegant', 'embarrassed', 'hurt', 'outstanding', 'shiny', 'straightforward', 'strange', 'supportive', 'worried']"
+"['combative', 'outstanding', 'serious', 'worried']"
+"['beautiful', 'bright', 'combative', 'easy', 'inquisitive', 'outstanding', 'sensible', 'serious', 'worried', 'zealous']"
+"['beautiful', 'bright', 'homely', 'zealous']"
+"['embarrassed', 'shiny', 'supportive']"
+"['combative', 'embarrassed', 'outrageous', 'outstanding', 'sensible', 'serious', 'strange', 'worried', 'zealous']"
+"['beautiful', 'bright', 'combative', 'easy', 'outstanding', 'sensible', 'serious', 'worried', 'zealous', ['embarrassed', 'inquisitive'], ['inquisitive', 'outrageous'], ['inquisitive', 'strange']]"
+"['beautiful', 'combative', 'outstanding', 'sensible', 'shiny', 'supportive', 'worried']"
+"['foolish', 'unpleasant', ['bad-tempered', 'excited'], ['bad-tempered', 'old-fashioned']]"
+"['foolish', 'witty']"
+"['excited', 'old-fashioned']"
+['witty']
+['bad-tempered']
+"['attentive', 'comfortable', 'foolish', 'frail', 'unpleasant', ['bad-tempered', 'excited'], ['bad-tempered', 'old-fashioned', 'witty']]"
+"['foolish', 'unpleasant', ['bad-tempered', 'excited'], ['bad-tempered', 'old-fashioned', 'witty']]"
+"['bad-tempered', 'foolish', 'unpleasant']"
+"['foolish', 'unpleasant', 'witty']"
+"['excited', 'foolish', 'unpleasant', ['old-fashioned', 'witty']]"
+"['excited', 'foolish', 'unpleasant', 'witty']"
+"['foolish', 'unpleasant', ['bad-tempered', 'excited'], ['bad-tempered', 'old-fashioned', 'witty']]"
+"['plain', 'popular']"
+"['plain', 'popular']"
+"['plain', 'popular']"
+"['condemned', 'confident', 'grumpy', 'long', 'messy', 'old-fashioned', 'scared', 'ugly', ['careless', 'disgusted']]"
+"['condemned', 'confident', 'grumpy', 'long', 'old-fashioned', 'ugly', ['careless', 'disgusted']]"
+"['ambitious', 'friendly']"
+['friendly']
+['loving']
+"['confused', 'curious', 'hilarious', 'homely', 'hypocritical', 'inquisitive', 'muddy', 'strange', 'unpleasant', 'wide-eyed', 'wrong', ['bored', 'different'], ['bored', 'inexpensive'], ['bored', 'proud'], ['bored', 'worried'], ['different', 'distinct'], ['different', 'glamorous'], ['different', 'modern'], ['distinct', 'inexpensive'], ['distinct', 'worried'], ['glamorous', 'inexpensive'], ['glamorous', 'worried'], ['inexpensive', 'modern'], ['modern', 'worried']]"
+"['different', 'hilarious', 'hypocritical', 'inexpensive', 'strange', ['bored', 'proud']]"
+"['aggressive', 'busy', 'courageous', 'easy', 'smart', 'ugliest', 'ugly', ['distinct', 'long', 'shy'], ['gorgeous', 'long', 'shy']]"
+"['aggressive', 'busy', 'courageous', 'easy', 'gifted', 'reserved', 'smart', 'ugliest', 'ugly', ['frightened', 'joyous'], ['gorgeous', 'joyous'], ['joyous', 'long'], ['distinct', 'long', 'shy'], ['gorgeous', 'long', 'shy']]"
+"['aggressive', 'busy', 'gifted', 'homely', 'joyous', 'reserved', 'smart', 'ugliest', 'ugly', ['confused', 'frail'], ['confused', 'gorgeous'], ['confused', 'light'], ['confused', 'silly'], ['foolish', 'frail'], ['foolish', 'gorgeous'], ['foolish', 'light'], ['foolish', 'silly'], ['gorgeous', 'shy'], ['distinct', 'frail', 'shy'], ['distinct', 'light', 'shy'], ['distinct', 'shy', 'silly']]"
+"['aggressive', 'busy', 'foolish', 'gifted', 'joyous', 'reserved', 'smart', 'ugliest', 'ugly', ['distinct', 'shy'], ['gorgeous', 'shy']]"
+"['busy', 'courageous', 'easy', 'foolish', 'frail', 'gifted', 'homely', 'hypocritical', 'joyous', 'long', 'reserved', 'silly', 'smart', 'ugliest']"
+"['busy', 'courageous', 'easy', 'foolish', 'frail', 'joyous', 'long', 'silly', 'ugliest']"
+"['busy', 'courageous', 'easy', 'foolish', 'frail', 'gifted', 'homely', 'hypocritical', 'joyous', 'long', 'reserved', 'silly', 'smart', 'ugliest']"
+"['aggressive', 'busy', 'reserved', ['distinct', 'shy'], ['gorgeous', 'shy']]"
+"['courageous', 'frail', 'long', 'silly']"
+"['busy', 'courageous', 'easy', 'frail', 'gifted', 'homely', 'hypocritical', 'joyous', 'long', 'reserved', 'silly', 'smart', 'ugliest', ['distinct', 'foolish'], ['foolish', 'gorgeous'], ['foolish', 'light'], ['foolish', 'ugly']]"
+"['amused', 'bossy', 'cruel', 'cute', 'horrible', ['clumsy', 'disgusted'], ['clumsy', 'long', 'naughty']]"
+"['bossy', 'disgusted', ['long', 'naughty']]"
+['long']
+"['bossy', 'clumsy']"
+['naughty']
+"['bossy', 'clumsy']"
+['proud']
+"['comfortable', 'condemned', 'enchanting', 'uptight']"
+"['comfortable', 'condemned', 'enchanting', 'uptight']"
+['helpless']
+"['comfortable', 'condemned', 'enchanting', 'uptight']"
+"['comfortable', 'condemned', 'enchanting', 'uptight']"
+['helpless']
+"['comfortable', 'condemned', 'enchanting', 'helpless', 'uptight']"
+['helpless']
+"['comfortable', 'condemned', 'enchanting', 'uptight']"
+"['comfortable', 'condemned', 'enchanting', 'helpless', 'uptight']"
+['proud']
+"['comfortable', 'condemned', 'enchanting', 'uptight']"
+"['comfortable', 'condemned', 'enchanting', 'uptight']"
+"['comfortable', 'condemned', 'enchanting', 'uptight']"
+"['comfortable', 'condemned', 'enchanting', 'uptight']"
+"['comfortable', 'condemned', 'enchanting', 'uptight']"
+"['hypocritical', 'thoughtful']"
+"['bossy', 'calm', 'gleaming', 'gorgeous', 'homely', 'naughty', 'rational', 'zealous']"
+"['agreeable', 'alert', 'anxious', 'condemned', 'difficult', 'frightened', 'gleaming', 'gorgeous', 'helpless', 'homely', 'mean', 'rational', 'zealous', ['grumpy', 'perfect'], ['outrageous', 'perfect'], ['bossy', 'outrageous', 'powerful'], ['crowded', 'outrageous', 'powerful']]"
+"['rational', ['grumpy', 'perfect']]"
+"['bossy', 'calm', 'crowded', 'frightened', 'gleaming', 'gorgeous', 'perfect', 'zealous', ['impartial', 'proud'], ['proud', 'thoughtful']]"
+"['bossy', 'gleaming', 'gorgeous', 'homely', 'proud', 'rational', 'zealous', ['naughty', 'shiny']]"
+"['bossy', 'gleaming', 'homely', 'rational', 'shiny', 'thoughtful', ['impartial', 'proud']]"
+"['agreeable', 'anxious', 'bossy', 'condemned', 'difficult', 'gleaming', 'gorgeous', 'helpless', 'homely', 'mean', 'powerful', 'rational', 'zealous', ['calm', 'thoughtful'], ['impartial', 'proud'], ['naughty', 'shiny'], ['naughty', 'thoughtful'], ['proud', 'thoughtful']]"
+"['agreeable', 'anxious', 'difficult', 'gleaming', 'gorgeous', 'helpless', 'homely', 'mean', 'rational', ['alert', 'naughty'], ['naughty', 'perfect']]"
+"['bossy', 'calm', 'frightened', 'perfect', ['impartial', 'proud'], ['proud', 'thoughtful']]"
+"['agreeable', 'anxious', 'bossy', 'condemned', 'crowded', 'difficult', 'gleaming', 'gorgeous', 'helpless', 'homely', 'mean', 'powerful', 'rational', 'zealous', ['calm', 'thoughtful'], ['impartial', 'proud'], ['naughty', 'shiny'], ['naughty', 'thoughtful'], ['proud', 'thoughtful']]"
+"['bossy', 'calm', 'frightened', 'perfect', ['impartial', 'proud'], ['proud', 'thoughtful']]"
+"['bossy', 'gleaming', 'homely', 'rational', 'shiny', 'thoughtful', ['impartial', 'proud']]"
+"['bossy', 'gleaming', 'gorgeous', 'homely', 'proud', 'rational', 'zealous', ['calm', 'thoughtful']]"
+"['ambitious', 'confident', 'plain', 'thoughtless']"
+"['clumsy', 'exuberant', 'light']"
+"['clumsy', 'exuberant']"
+"['clumsy', 'exuberant']"
+"['clumsy', 'exuberant', 'light']"
+"['clumsy', 'exuberant']"
+"['ambitious', 'confident', 'plain', 'thoughtless']"
+"['clumsy', 'exuberant']"
+['rational']
+"['ambitious', 'confident', 'plain', 'thoughtless']"
+"['clumsy', 'exuberant', 'light']"
+['rational']
+['rational']
+"['ambitious', 'confident', 'plain', 'thoughtless']"
+"['ambitious', 'confident', 'plain', 'thoughtless']"
+"['ambitious', 'confident', 'plain', 'thoughtless']"
+['rational']
+"['clumsy', 'exuberant', 'light']"
+"['clumsy', 'exuberant', 'light']"
+['rational']
+"['busy', 'gorgeous', 'homely', 'hurt', 'jittery', 'scared', 'tender', 'ugliest']"
+"['busy', 'gorgeous', 'homely', 'hurt', 'jittery', 'scared', 'sincere', ['shy', 'ugliest']]"
+"['hurt', 'straightforward']"
+"['jittery', 'silly']"
+"['excited', 'inquisitive', 'pessimistic', 'quaint', 'tired']"
+"['excited', 'famous', 'foolish', 'perfect', 'powerful']"
+"['excited', 'famous', 'foolish', 'impatient', 'muddy', 'perfect', 'pessimistic', 'powerful', 'ugly', ['beautiful', 'sleepy'], ['condemned', 'confident'], ['condemned', 'frantic'], ['condemned', 'sleepy'], ['confident', 'elated'], ['confident', 'enchanting'], ['confident', 'gleaming'], ['elated', 'sleepy'], ['enchanting', 'frantic'], ['enchanting', 'sleepy'], ['frantic', 'gleaming'], ['frantic', 'sleepy'], ['gleaming', 'sleepy']]"
+"['aggressive', 'average', 'different', 'distinct', 'gorgeous', 'hilarious', 'hurt', 'inexpensive', 'muddy', 'mysterious', 'uptight', ['amused', 'blushing']]"
+"['aggressive', 'average', 'confused', 'different', 'difficult', 'friendly', 'gorgeous', 'hilarious', 'hurt', 'inexpensive', 'lucky', 'mysterious', 'thoughtless', 'uptight', ['amused', 'blushing'], ['blushing', 'muddy'], ['distinct', 'fearless'], ['fearless', 'muddy']]"
